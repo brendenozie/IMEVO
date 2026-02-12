@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
           goodsType: "02", // Use "02" for Virtual Goods (Subscriptions)
           goodsCategory: "6000",
           referenceGoodsId: planId,
-          goodsName: `GIFTECH${planConfig?.name}`,
+          goodsName: `IMEVO${planConfig?.name}`,
           goodsDetail: `Subscription for ${planConfig?.duration} days`,
         },
         returnUrl: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?payment=success`,

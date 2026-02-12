@@ -6,7 +6,6 @@ import { BlogSection } from "@/components/BlogSection";
 import { BookingSection } from "@/components/BookingSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
-import { FooterSections } from "@/components/FooterSections";
 import { HeroSection } from "@/components/HeroSection";
 import { Navbar } from "@/components/navigation";
 import { NetworkMap } from "@/components/NetworkMap";
@@ -45,8 +44,6 @@ export default function HomePage() {
         <NetworkMap />
         
         <BlogSection />
-
-        <FooterSections />
 
         <ContactSection />
       </main>

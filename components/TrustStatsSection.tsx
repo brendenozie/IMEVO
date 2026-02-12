@@ -117,7 +117,7 @@ export function TrustStatsSection() {
               ))}
             </div>
             <p className="text-sm font-bold italic">
-              &quot;The best engineering talent comes from GIFTECH&quot; — <span className="text-emerald-400">TechCrunch</span>
+              &quot;The best engineering talent comes from IMEVO&quot; — <span className="text-emerald-400">TechCrunch</span>
             </p>
           </div>
         </motion.div>

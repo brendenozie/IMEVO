@@ -1,109 +1,145 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { MousePointer2, Box, Plane, Truck, Box as BoxIcon } from "lucide-react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { MousePointer2, Box, Plane, Truck, Box as BoxIcon, ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 const STEPS = [
   { 
     icon: MousePointer2, 
     title: "Online Quote", 
-    desc: "An online quote is an estimate of the cost of a product or service provided by a business." 
+    desc: "Instant estimates tailored to your specific logistical dimensions and cargo requirements." 
   },
   { 
     icon: Box, 
     title: "Picking Product", 
-    desc: "Picking a product refers to the process of selecting a specific from a range of products." 
+    desc: "Precision selection from our global inventory network using AI-driven sorting." 
   },
   { 
     icon: Plane, 
     title: "Product Packaging", 
-    desc: "Product packaging refers to the materials and design used to protect product to customers." 
+    desc: "Industrial-grade protection designed to withstand transcontinental transit." 
   },
   { 
     icon: Truck, 
-    title: "Product Transport", 
-    desc: "Product transport refers to the process of moving products from one location to another." 
+    title: "Global Transport", 
+    desc: "Seamless delivery via our integrated air, sea, and land distribution channels." 
   }
 ];
 
 export function ProcessTimeline() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      {/* Background World Map Pattern (Subtle) */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('/world-map-dots.png')] bg-center bg-no-repeat bg-contain" />
+    <section ref={containerRef} className="py-24 lg:py-40 bg-slate-950 relative overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#f7941d] rounded-full blur-[150px]" />
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         
         {/* --- SECTION HEADER --- */}
-        <div className="text-center mb-24 space-y-4">
-          <div className="flex items-center justify-center gap-2 text-[#f7941d]">
-            <BoxIcon size={16} className="fill-current" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em]">Working Process</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 capitalize">
-            Working Process for services
+        <div className="flex flex-col items-center text-center mb-32 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md"
+          >
+            <BoxIcon size={14} className="text-[#f7941d] fill-current" />
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80">Our Methodology</span>
+          </motion.div>
+          
+          <h2 className="text-5xl md:text-7xl font-black text-white uppercase italic leading-none">
+            The <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1.2px white' }}>Logistics</span> <br /> 
+            Command Chain
           </h2>
         </div>
 
-        {/* --- TIMELINE GRID --- */}
+        {/* --- TIMELINE FLOW --- */}
         <div className="relative">
           
-          {/* Wave Dotted Path (Desktop Only) */}
-          <svg 
-            className="hidden lg:block absolute top-12 left-0 w-full h-32 z-0 pointer-events-none"
-            viewBox="0 0 1200 120" 
-            fill="none"
-          >
-            <motion.path
-              d="M 150,60 C 300,10 450,110 600,60 C 750,10 900,110 1050,60"
-              stroke="#1d4ed8" 
-              strokeWidth="2"
-              strokeDasharray="6 6"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+          {/* Progress Connector (Desktop) */}
+          <div className="hidden lg:block absolute top-20 left-0 w-full h-[2px] bg-white/10">
+            <motion.div 
+              style={{ scaleX }}
+              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#f7941d] origin-left"
             />
-          </svg>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
             {STEPS.map((step, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.2 }}
-                className="text-center group"
+                transition={{ delay: idx * 0.15, duration: 0.8 }}
+                className="relative group"
               >
-                {/* Icon Container */}
-                <div className="relative w-32 h-32 mx-auto mb-10">
-                  {/* Outer Dashed Circle */}
-                  <div className="absolute inset-0 rounded-full border-2 border-dashed border-gray-200 group-hover:border-[#1d4ed8] transition-colors duration-500" />
-                  
-                  {/* Inner White Circle */}
-                  <div className="absolute inset-2 rounded-full bg-white shadow-xl flex items-center justify-center border border-gray-50">
-                    <step.icon className="w-10 h-10 text-[#1d4ed8] group-hover:scale-110 transition-transform duration-500" />
+                {/* Node & Icon */}
+                <div className="relative mb-12 flex lg:justify-start justify-center">
+                  <div className="relative z-10 w-24 h-24 rounded-3xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-[#f7941d]/50 transition-all duration-500 shadow-2xl group-hover:-translate-y-2">
+                    <step.icon size={32} className="text-white group-hover:text-[#f7941d] transition-colors" />
+                    
+                    {/* Glowing Aura */}
+                    <div className="absolute inset-0 bg-[#f7941d]/0 group-hover:bg-[#f7941d]/10 rounded-3xl transition-all duration-500" />
                   </div>
 
-                  {/* Number Badge */}
-                  <div className="absolute top-0 right-0 w-8 h-8 rounded-full bg-blue-800 text-white flex items-center justify-center text-xs font-black shadow-lg">
-                    0{idx + 1}
+                  {/* Number Badge (Modern Style) */}
+                  <div className="absolute -top-4 lg:-right-4 right-1/2 translate-x-12 lg:translate-x-0 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center text-xs font-black italic shadow-[0_10px_20px_rgba(255,255,255,0.2)]">
+                    {idx + 1}
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-black text-slate-900 group-hover:text-[#f7941d] transition-colors">
+                {/* Text Content */}
+                <div className="space-y-4 lg:text-left text-center">
+                  <h3 className="text-2xl font-black text-white uppercase italic tracking-tight group-hover:text-[#f7941d] transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed max-w-[240px] mx-auto">
+                  <p className="text-slate-400 text-sm leading-relaxed font-medium">
                     {step.desc}
                   </p>
+                  
+                  {/* Visual Connector (Desktop Arrow) */}
+                  {idx !== STEPS.length - 1 && (
+                    <div className="hidden lg:flex items-center gap-2 text-white/10 group-hover:text-[#f7941d]/40 transition-colors pt-4">
+                      <div className="h-[1px] w-full bg-current" />
+                      <ArrowRight size={14} />
+                    </div>
+                  )}
                 </div>
+
+                {/* Mobile Connector Line */}
+                {idx !== STEPS.length - 1 && (
+                  <div className="lg:hidden absolute left-1/2 -bottom-12 w-[1px] h-8 bg-gradient-to-b from-[#f7941d] to-transparent" />
+                )}
               </motion.div>
             ))}
           </div>
         </div>
+
+        {/* --- BOTTOM CTA --- */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-32 text-center"
+        >
+          <button className="px-12 py-6 bg-[#f7941d] text-white font-black uppercase text-xs tracking-[0.4em] rounded-full hover:bg-white hover:text-black transition-all shadow-[0_20px_40px_rgba(247,148,29,0.2)]">
+            Start Your Shipment
+          </button>
+        </motion.div>
       </div>
     </section>
   );

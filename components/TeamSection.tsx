@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Linkedin, Instagram, Share2 } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Box, Plus, Users, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const TEAM_MEMBERS = [
@@ -29,97 +29,119 @@ const TEAM_MEMBERS = [
 
 export function TeamSection() {
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+      {/* Background Accent */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px] -z-0 translate-x-1/2 -translate-y-1/2" />
+
+      <div className="container mx-auto px-6 relative z-10">
         
         {/* --- HEADER --- */}
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <motion.span 
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="space-y-4">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-3 text-orange-600"
+            >
+              <Box size={18} className="fill-current" />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em]">Leadership</span>
+            </motion.div>
+            <h2 className="text-5xl md:text-7xl font-black text-slate-950 leading-none uppercase italic">
+              Expert <span className="text-transparent stroke-slate-950" style={{ WebkitTextStroke: '1px #0f172a' }}>Personnel</span>
+            </h2>
+          </div>
+          
+          <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-orange-500 font-black uppercase tracking-[0.3em] text-xs"
+            className="max-w-xs text-slate-500 text-sm font-medium border-l-2 border-orange-500 pl-6 hidden md:block"
           >
-            Our Experts
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
-            Meet The Minds Behind <br />
-            <span className="text-orange-500">Global Logistics</span>
-          </h2>
-          <div className="h-1.5 w-20 bg-slate-900 mx-auto rounded-full" />
+            Our leadership team brings over 40 years of combined experience in global freight and supply chain optimization.
+          </motion.p>
         </div>
 
         {/* --- TEAM GRID --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {TEAM_MEMBERS.map((member, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group"
+              className="group relative"
             >
-              <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-100 aspect-[4/5] mb-6">
-                {/* Image with Grayscale Filter */}
+              {/* Card Container */}
+              <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] aspect-[4/5] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] transition-all duration-700">
+                
+                {/* Image */}
                 <Image 
                   src={member.img} 
-                  alt={member.name}                  
-                  width={400}
-                  height={500}
-                  style={{ objectFit: "cover" }}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-in-out"
+                  alt={member.name}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
                 />
 
-                {/* Social Overlay */}
-                <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="absolute bottom-6 right-6 flex flex-col gap-3 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                   {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-                     <a 
-                      key={i} 
-                      href="#" 
-                      className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-slate-900 hover:bg-orange-500 hover:text-white transition-colors shadow-xl"
-                    >
-                       <Icon className="w-4 h-4" />
-                     </a>
-                   ))}
+                {/* Social Floating Panel */}
+                <div className="absolute top-6 right-6 flex flex-col gap-2 translate-x-12 group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-spring">
+                  {[Linkedin, Twitter, Facebook].map((Icon, i) => (
+                    <button key={i} className="w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-slate-900 hover:bg-orange-600 hover:text-white transition-all shadow-lg">
+                      <Icon size={16} />
+                    </button>
+                  ))}
                 </div>
 
-                {/* Corner Label */}
-                <div className="absolute top-6 left-0 bg-orange-500 text-white px-4 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-r-lg">
-                  Logistik Expert
+                {/* Info Overlay (Permanent Mobile, Hover Desktop) */}
+                <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="space-y-1">
+                    <h3 className="text-2xl font-black text-white uppercase italic tracking-tight">
+                      {member.name}
+                    </h3>
+                    <p className="text-orange-500 text-[10px] font-black uppercase tracking-[0.2em]">
+                      {member.role}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* Text Content */}
-              <div className="text-center space-y-1">
-                <h3 className="text-xl font-black text-slate-900 group-hover:text-orange-500 transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">
-                  {member.role}
-                </p>
-              </div>
+              {/* Decorative Background Element for each card */}
+              <div className="absolute -inset-2 bg-orange-600/10 rounded-[2.5rem] scale-95 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10" />
             </motion.div>
           ))}
         </div>
 
-        {/* --- BOTTOM DECORATION --- */}
-        <div className="mt-20 p-12 bg-slate-50 rounded-[3rem] border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-center gap-6">
-                <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center text-white shrink-0">
-                    <Share2 className="w-8 h-8" />
-                </div>
-                <div>
-                    <h4 className="text-xl font-black text-slate-900">Want to join our team?</h4>
-                    <p className="text-slate-500 font-medium">We are always looking for logistics specialists.</p>
-                </div>
+        {/* --- RECRUITMENT BANNER --- */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          className="mt-24 group relative overflow-hidden"
+        >
+          {/* Background Decorative Pattern */}
+          <div className="absolute inset-0 bg-slate-950 rounded-[3rem]" />
+          <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+          
+          <div className="relative p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div className="flex items-center gap-8">
+              <div className="w-20 h-20 bg-[#f7941d] rounded-3xl flex items-center justify-center text-white rotate-3 group-hover:rotate-12 transition-transform duration-500 shadow-[0_20px_40px_rgba(247,148,29,0.3)]">
+                <Users size={40} />
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-3xl md:text-4xl font-black text-white uppercase italic">
+                  Join The <span className="text-[#f7941d]">A-Team</span>
+                </h4>
+                <p className="text-slate-400 font-medium max-w-sm">
+                  We are looking for passionate logistics experts and data analysts to join our global network.
+                </p>
+              </div>
             </div>
-            <button className="px-10 h-16 bg-slate-900 text-white rounded-2xl font-black hover:bg-orange-500 transition-all shadow-xl shadow-slate-900/10 hover:shadow-orange-500/20">
-                View Openings
-            </button>
-        </div>
 
-      </div>
-    </section>
+            <button className="relative flex items-center gap-4 bg-white text-slate-950 px-10 py-6 rounded-2xl font-black uppercase text-xs tracking-[0.3em] hover:bg-[#f7941d] hover:text-white transition-all overflow-hidden group/btn">
+              <span className="relative z-10">Career Openings</span>
+              <ArrowUpRight size={18} className="relative z-10 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+            </button>
+          </div>
+        </motion.div>
+        </div>
+        </section>
   );
 }

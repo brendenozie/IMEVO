@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     // Send email to support
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: "info@giftech.com",
+      to: "info@IMEVO.com",
       subject: `Support Request: ${queryTypeLabel} from ${name}`,
       html: emailContent,
       replyTo: email,
@@ -62,12 +62,12 @@ export async function POST(request: NextRequest) {
       to: email,
       subject: "Your Support Request Has Been Received",
       html: `
-        <h2>Thank You for Contacting GIFTECHSupport</h2>
+        <h2>Thank You for Contacting IMEVOSupport</h2>
         <p>Hello ${name},</p>
         <p>We have received your support request and will get back to you as soon as possible.</p>
         <p><strong>Query Type:</strong> ${queryTypeLabel}</p>
         <p>Our support team typically responds within 24 hours.</p>
-        <p>Best regards,<br>GIFTECHSupport Team</p>
+        <p>Best regards,<br>IMEVOSupport Team</p>
       `,
     });
 

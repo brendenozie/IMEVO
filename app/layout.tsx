@@ -3,69 +3,68 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import { SignalServiceProvider } from "@/components/signal-service-provider";
 import { AuthProvider } from "@/components/auth-context";
-import { PhoneCheckWrapper } from "@/components/phone-check-wrapper";
-import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+// import { PhoneCheckWrapper } from "@/components/phone-check-wrapper";
+// import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import ClientSessionProvider from "@/components/client-session-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "GIFTECH",
-    template: "%s | GIFTECH",
+    default: "IMEVO",
+    template: "%s | IMEVO",
   },
   description:
-    "Get real-time, AI-powered trading signals with up to 93% accuracy. Join thousands of successful traders using our proprietary algorithm for forex, crypto, and stocks.",
+    "Delivery and Logistics for Businesses. Streamline your operations with our all-in-one platform. Manage deliveries, track drivers, and optimize routes effortlessly.",
   keywords: [
-    "trading signals",
-    "forex signals",
-    "crypto signals",
-    "stock analysis",
-    "AI trading",
-    "trading platform",
-    "market analysis",
-    "investment signals",
-    "trading alerts",
-    "financial markets",
+    "delivery software",
+    "logistics software",
+    "route optimization",
+    "driver tracking",
+    "delivery management",
+    "fleet management",
+    "shipment tracking",
+    "logistics analytics",
+    "supply chain management",
+    "transportation management",
   ],
-  authors: [{ name: "GIFTECHTeam" }],
-  creator: "GIFTECH",
-  publisher: "GIFTECH",
+  authors: [{ name: "IMEVOTeam" }],
+  creator: "IMEVO",
+  publisher: "IMEVO",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://giftech.com"),
+  metadataBase: new URL("https://IMEVO.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://giftech.com",
-    title: "GIFTECH",
+    url: "https://IMEVO.com",
+    title: "IMEVO",
     description:
-      "Get real-time, AI-powered trading signals with up to 93% accuracy. Join thousands of successful traders using our proprietary algorithm.",
-    siteName: "GIFTECH",
+      "Delivery and Logistics for Businesses. Streamline your operations with our all-in-one platform. Manage deliveries, track drivers, and optimize routes effortlessly.",
+    siteName: "IMEVO",
     images: [
       {
-        url: "/giftech_ico.png",
+        url: "/IMEVO_ico.png",
         width: 1200,
         height: 630,
-        alt: "GIFTECH",
+        alt: "IMEVO",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GIFTECH",
+    title: "IMEVO",
     description:
-      "Get real-time, AI-powered trading signals with up to 93% accuracy. Join thousands of successful traders.",
-    images: ["/giftech_ico.png"],
-    creator: "@giftech",
+      "Delivery and Logistics for Businesses. Streamline your operations with our all-in-one platform. Manage deliveries, track drivers, and optimize routes effortlessly.",
+    images: ["/IMEVO_ico.png"],
+    creator: "@IMEVO",
   },
   robots: {
     index: true,
@@ -84,9 +83,9 @@ export const metadata: Metadata = {
     yahoo: "your-yahoo-verification-code",
   },
   icons: {
-    icon: "/giftech_ico.png",
-    shortcut: "/giftech_ico.png",
-    apple: "/giftech_ico.png",
+    icon: "/IMEVO_ico.png",
+    shortcut: "/IMEVO_ico.png",
+    apple: "/IMEVO_ico.png",
   },
 };
 
@@ -162,12 +161,11 @@ export default function RootLayout({
         >
           <ClientSessionProvider>
             <AuthProvider>
-              <PhoneCheckWrapper>
-                <SignalServiceProvider />
+              {/* <PhoneCheckWrapper> */}
                 {children}
                 <Toaster />
                 {/* <FloatingWhatsApp /> */}
-              </PhoneCheckWrapper>
+              {/* </PhoneCheckWrapper> */}
             </AuthProvider>
           </ClientSessionProvider>
         </ThemeProvider>

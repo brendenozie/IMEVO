@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
             currency: "usd",
             product_data: {
               name: `${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`,
-              description: `GIFTECH${
+              description: `IMEVO${
                 plan.charAt(0).toUpperCase() + plan.slice(1)
               } Subscription`,
             },

@@ -94,7 +94,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
-            © 2026 Logistik Solutions Inc. All Rights Reserved.
+            © 2026 IMEVO Solutions Inc. All Rights Reserved.
           </p>
           <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>

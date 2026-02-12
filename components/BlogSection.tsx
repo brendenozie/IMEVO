@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, User, ArrowRight, Tag } from "lucide-react";
+import { Calendar, User, ArrowRight, Tag, BookOpen, Send } from "lucide-react";
 import Image from "next/image";
 
 const POSTS = [
@@ -40,115 +40,134 @@ export function BlogSection() {
   const regularPosts = POSTS.filter(p => !p.featured);
 
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="container mx-auto px-6">
+    <section className="py-24 lg:py-40 bg-white relative overflow-hidden">
+      {/* Background Decorative Element */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
+
+      <div className="container mx-auto px-6 relative z-10">
         
         {/* --- HEADER --- */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="space-y-4">
-            <div className="flex items-center gap-3 text-orange-500 font-black uppercase tracking-widest text-xs">
-              <div className="h-px w-8 bg-orange-500" />
-              <span>Industry Insights</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900">
-              Latest News & <span className="text-orange-500">Articles</span>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-3 text-orange-600"
+            >
+              <BookOpen size={18} />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em]">Knowledge Base</span>
+            </motion.div>
+            <h2 className="text-5xl md:text-7xl font-black text-slate-950 leading-none uppercase italic">
+              Industry <span className="text-transparent stroke-slate-950" style={{ WebkitTextStroke: '1.2px #0f172a' }}>Intelligence</span>
             </h2>
           </div>
-          <button className="group flex items-center gap-3 px-8 py-4 bg-white border border-slate-200 rounded-2xl font-black text-sm hover:bg-slate-900 hover:text-white transition-all duration-300">
-            View All Posts <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            className="group flex items-center gap-4 px-10 py-5 bg-slate-950 text-white rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all"
+          >
+            Explore Journal <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+          </motion.button>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
           
-          {/* --- FEATURED POST --- */}
+          {/* --- FEATURED COLUMN --- */}
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="lg:col-span-7 group cursor-pointer"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="lg:col-span-7 group"
           >
-            <div className="relative overflow-hidden rounded-[3rem] aspect-[16/10] mb-8 bg-slate-200">
+            <div className="relative overflow-hidden rounded-[3.5rem] bg-slate-100 mb-10 shadow-2xl">
               <Image 
-                src={featuredPost?.image || "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800"} 
-                alt={featuredPost?.title || "Featured Post"}
-                width={800}
-                height={500}
-                style={{ objectFit: "cover" }}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src={featuredPost?.image || ""} 
+                alt={featuredPost?.title || ""}
+                width={1200}
+                height={800}
+                className="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-1000"
               />
-              <div className="absolute top-6 left-6 flex gap-2">
-                <span className="px-4 py-2 bg-orange-500 text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-lg">
-                  {featuredPost?.category || "Category"}
+              <div className="absolute top-8 left-8">
+                <span className="px-6 py-3 bg-white/90 backdrop-blur-md text-slate-950 text-[10px] font-black uppercase tracking-widest rounded-2xl shadow-xl">
+                  {featuredPost?.category}
                 </span>
               </div>
             </div>
-            <div className="space-y-4 px-2">
-              <div className="flex items-center gap-6 text-slate-400 text-sm font-bold">
-                <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-orange-500" /> {featuredPost?.date || "Date"}</div>
-                <div className="flex items-center gap-2"><User className="w-4 h-4 text-orange-500" /> By {featuredPost?.author || "Author"}</div>
+            
+            <div className="space-y-6 max-w-2xl">
+              <div className="flex items-center gap-8 text-slate-400 text-[10px] font-black uppercase tracking-widest">
+                <div className="flex items-center gap-2"><Calendar size={14} className="text-orange-500" /> {featuredPost?.date}</div>
+                <div className="flex items-center gap-2"><User size={14} className="text-orange-500" /> {featuredPost?.author}</div>
               </div>
-              <h3 className="text-3xl font-black text-slate-900 group-hover:text-orange-500 transition-colors leading-tight">
-                {featuredPost?.title || "Title"}
+              <h3 className="text-4xl md:text-5xl font-black text-slate-950 leading-[1.1] group-hover:text-orange-600 transition-colors">
+                {featuredPost?.title}
               </h3>
-              <p className="text-slate-500 leading-relaxed max-w-2xl">
-                {featuredPost?.excerpt || "Excerpt"}
+              <p className="text-slate-500 text-lg font-medium leading-relaxed">
+                {featuredPost?.excerpt}
               </p>
+              <button className="flex items-center gap-3 font-black text-xs uppercase tracking-[0.3em] text-slate-950 border-b-2 border-orange-500 pb-2 hover:gap-6 transition-all">
+                Full Story <ArrowRight size={14} />
+              </button>
             </div>
           </motion.div>
 
-          {/* --- SIDE LIST --- */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* --- SIDEBAR LIST --- */}
+          <div className="lg:col-span-5 space-y-12 lg:pt-4">
             {regularPosts.map((post, i) => (
               <motion.div 
                 key={post.id}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="group flex gap-6 p-4 rounded-[2rem] hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500"
+                transition={{ delay: i * 0.2 }}
+                className="group flex gap-8 items-center cursor-pointer"
               >
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden shrink-0 bg-slate-200">
+                <div className="w-32 h-32 md:w-44 md:h-44 rounded-[2rem] overflow-hidden shrink-0 shadow-lg group-hover:shadow-orange-500/20 transition-all duration-500">
                   <Image 
-                    src={post.image || "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800"} 
-                    alt={post.title || "Post Image"} 
-                    width={160}
-                    height={160}
-                    style={{ objectFit: "cover" }}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    src={post.image} 
+                    alt={post.title} 
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                <div className="flex flex-col justify-center space-y-3">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-black uppercase tracking-tighter text-orange-500 bg-orange-50 px-2 py-0.5 rounded-md">
-                      {post.category || "Category"}
-                    </span>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      {post.date || "Date"}
-                    </span>
-                  </div>
-                  <h4 className="text-lg font-black text-slate-900 leading-snug group-hover:text-orange-500 transition-colors">
-                    {post.title || "Title"}
+                <div className="space-y-3">
+                  <span className="text-[10px] font-black text-orange-600 uppercase tracking-widest">{post.category}</span>
+                  <h4 className="text-xl font-black text-slate-950 leading-tight group-hover:text-orange-600 transition-colors">
+                    {post.title}
                   </h4>
-                  <div className="flex items-center gap-2 text-xs font-black text-slate-900 group-hover:gap-4 transition-all">
-                    Read More <ArrowRight className="w-3 h-3 text-orange-500" />
+                  <div className="flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                    <span>{post.date}</span>
                   </div>
                 </div>
               </motion.div>
             ))}
 
-            {/* Newsletter CTA Inside Blog Section */}
-            <div className="mt-8 p-8 rounded-[2.5rem] bg-slate-900 relative overflow-hidden">
-              <div className="relative z-10">
-                <h4 className="text-white font-black text-xl mb-2">Expert Logistics Weekly</h4>
-                <p className="text-slate-400 text-sm mb-6">Get the latest freight trends delivered to your inbox.</p>
-                <div className="flex gap-2">
-                  <input type="text" placeholder="Your Email" className="bg-white/10 border-none rounded-xl px-4 py-3 text-sm text-white w-full outline-none focus:ring-1 focus:ring-orange-500 transition-all" />
-                  <button className="bg-orange-500 text-white p-3 rounded-xl hover:bg-white hover:text-orange-500 transition-all">
-                    <ArrowRight className="w-5 h-5" />
+            {/* Glass Newsletter Pod */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="relative p-10 rounded-[3rem] bg-slate-950 text-white overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
+            >
+              <div className="relative z-10 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-orange-600 rounded-2xl flex items-center justify-center rotate-12">
+                    <Send size={24} />
+                  </div>
+                  <h4 className="text-2xl font-black italic uppercase leading-none">The Logistics <br /><span className="text-orange-500">Digest</span></h4>
+                </div>
+                <p className="text-slate-400 text-sm font-medium">Join 15,000+ logistics pros receiving our weekly trade analysis.</p>
+                <div className="relative flex items-center">
+                  <input 
+                    type="email" 
+                    placeholder="E-mail address" 
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-5 px-6 text-sm focus:outline-none focus:border-orange-500 transition-all"
+                  />
+                  <button className="absolute right-2 p-4 bg-orange-600 rounded-xl hover:bg-white hover:text-orange-600 transition-all">
+                    <ArrowRight size={18} />
                   </button>
                 </div>
               </div>
-              <Tag className="absolute -bottom-4 -right-4 w-24 h-24 text-white/5 -rotate-12" />
-            </div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-600/10 blur-3xl" />
+            </motion.div>
           </div>
 
         </div>
