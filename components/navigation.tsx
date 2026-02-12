@@ -26,12 +26,12 @@ export function Navbar() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Phone size={14} className="text-orange-500" />
-              <span className="font-semibold text-gray-300">Phone : <span className="text-white">+111 (564) 568 25</span></span>
+              <span className="font-semibold text-gray-300">Phone : <span className="text-white">0700 700 063 | 0700 700 049</span></span>
             </div>
             <div className="h-4 w-[1px] bg-gray-700" />
             <div className="flex items-center gap-2">
               <Mail size={14} className="text-orange-500" />
-              <span className="font-semibold text-gray-300">Email : <span className="text-white">quickhelp@gmail.com</span></span>
+              <span className="font-semibold text-gray-300">Email : <span className="text-white">info@imevolimited.com</span></span>
             </div>
           </div>
 

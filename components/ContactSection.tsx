@@ -104,9 +104,9 @@ export function ContactSection() {
               
               <div className="space-y-10">
                 {[
-                  { icon: MapPin, label: "Coordinates", val: "123 Logistics Way, Suite 500\nChicago, IL 60601" },
+                  { icon: MapPin, label: "Coordinates", val: "Lusingeti Road, Number 31, Industrial Area" },
                   { icon: Clock, label: "Uptime", val: "Mon - Fri: 08:00 - 18:00\nSat: 09:00 - 14:00" },
-                  { icon: Phone, label: "Direct Line", val: "+1 (800) LOGI-PRO" }
+                  { icon: Phone, label: "Direct Line", val: "0700 700 063 | 0700 700 049" }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
                     <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">

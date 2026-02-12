@@ -58,15 +58,15 @@ export function Footer() {
             <ul className="space-y-6 text-slate-400 text-sm">
               <li className="flex gap-4">
                 <MapPin className="w-5 h-5 text-orange-500 shrink-0" />
-                <span>123 Logistics Way, Suite 500<br />Chicago, IL 60601</span>
+                <span>Lusingeti Road, Number 31, Industrial Area</span>
               </li>
               <li className="flex gap-4">
                 <Phone className="w-5 h-5 text-orange-500 shrink-0" />
-                <span>+1 (800) LOGI-PRO</span>
+                <span>0700 700 063 | 0700 700 049</span>
               </li>
               <li className="flex gap-4">
                 <Mail className="w-5 h-5 text-orange-500 shrink-0" />
-                <span>contact@logistik.com</span>
+                <span>info@imevolimited.com</span>
               </li>
             </ul>
           </div>
