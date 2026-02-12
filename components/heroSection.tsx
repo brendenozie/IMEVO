@@ -52,9 +52,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-[12vw] md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase"
           >
-            Rail Freight <br />
+            IMEVO <br />
             <span className="text-transparent stroke-white stroke-2" style={{ WebkitTextStroke: '1px white' }}>
-              & Logistics
+              Limited.
             </span>
           </motion.h1>
 
