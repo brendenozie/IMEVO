@@ -1,54 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { Send, Play, ArrowRight, ArrowLeft, Box } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-900 overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="relative min-h-screen w-full flex items-center overflow-hidden">
+      {/* Background with Darkened Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10" />
+        <div className="absolute inset-0 bg-black/40 z-10" />
         <img 
-          src="/truck-bg.jpg" 
-          className="w-full h-full object-cover opacity-50" 
-          alt="Freight Logistics" 
+          src="/truck-rail-bg.jpg" 
+          className="w-full h-full object-cover" 
+          alt="Rail Freight and Logistics" 
         />
       </div>
 
       <div className="container mx-auto px-6 relative z-20">
-        <div className="max-w-3xl space-y-8">
+        <div className="max-w-4xl space-y-6">
+          {/* Subheader */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3 text-orange-500"
+            className="flex items-center gap-2 text-white"
           >
-            <div className="h-[2px] w-12 bg-orange-500" />
-            <span className="text-xs font-black uppercase tracking-[0.3em]">Global Logistics Leader</span>
+            <Box size={18} className="text-[#f7941d] fill-[#f7941d]" />
+            <span className="text-sm font-bold uppercase tracking-wider">
+              We&apos;re Provide Best Services
+            </span>
           </motion.div>
 
+          {/* Main Heading */}
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-black text-white leading-none"
+            className="text-6xl md:text-9xl font-black text-white leading-[0.9] tracking-tight uppercase"
           >
-            RAIL FREIGHT <br />
-            <span className="text-orange-500">& LOGISTICS</span>
+            Rail Freight <br />
+            <span className="text-white">And Logistics</span>
           </motion.h1>
 
-          <p className="text-slate-300 text-lg md:text-xl max-w-xl leading-relaxed">
-            Revolutionizing supply chains through precision rail networks and 
-            integrated multimodal solutions across the continent.
+          {/* Description */}
+          <p className="text-gray-100 text-lg md:text-xl max-w-2xl leading-relaxed font-medium">
+            Nulla quis lorem ut libero malesuada feugiat. Donec sollicitudin malesuada. 
+            Curabitur arcu erat, accumsan id imperdiet, porttitor at sem. Mauris aliquet.
           </p>
 
-          <div className="flex flex-wrap gap-4">
-            <button className="h-16 px-10 rounded-2xl bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all flex items-center gap-2">
-              Start Shipping <ArrowRight className="w-5 h-5" />
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-8 pt-4">
+            <button className="h-16 px-8 bg-[#f7941d] text-white font-black text-sm uppercase flex items-center gap-3 hover:bg-[#e08316] transition-all transform skew-x-[-10deg]">
+              <span className="skew-x-[10deg] flex items-center gap-2">
+                Free Quote! <Send size={16} />
+              </span>
             </button>
-            <button className="h-16 w-16 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all">
-              <Play className="w-5 h-5 fill-current" />
-            </button>
+            
+            <div className="flex items-center gap-4 group cursor-pointer">
+              <div className="h-14 w-14 rounded-full bg-blue-700/80 flex items-center justify-center text-white ring-8 ring-blue-900/30 group-hover:scale-110 transition-transform">
+                <Play size={20} className="fill-current ml-1" />
+              </div>
+              <span className="text-white font-bold text-sm uppercase border-b-2 border-white tracking-widest pb-1">
+                Watch Video
+              </span>
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Right-side Navigation Arrows */}
+      <div className="absolute right-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-30">
+        <button className="h-14 w-14 rounded-full bg-[#f7941d] text-white flex items-center justify-center hover:bg-white hover:text-[#f7941d] transition-all">
+          <ArrowRight size={20} />
+        </button>
+        <button className="h-14 w-14 rounded-full bg-[#f7941d] text-white flex items-center justify-center hover:bg-white hover:text-[#f7941d] transition-all">
+          <ArrowLeft size={20} />
+        </button>
+      </div>
+
+      {/* Bottom Slider Pagination Indicator */}
+      <div className="absolute bottom-0 right-0 bg-white px-16 py-10 hidden md:block">
+        <div className="flex items-center gap-4 text-gray-800 font-bold">
+          <span>03</span>
+          <div className="w-48 h-[2px] bg-gray-200 relative">
+            <div className="absolute top-0 left-0 h-full w-2/3 bg-[#f7941d]" />
+          </div>
+          <span>03</span>
         </div>
       </div>
     </section>

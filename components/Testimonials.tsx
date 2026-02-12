@@ -1,112 +1,122 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Box } from "lucide-react";
 
 const REVIEWS = [
   {
-    name: "Alexander Graham",
-    role: "Supply Chain Manager, TechCorp",
-    content: "Logistik has completely transformed our European distribution. Their rail-to-road integration saved us 15% on fuel costs in the first quarter alone.",
-    rating: 5,
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100"
+    name: "Ronald Richards",
+    role: "Web Developer",
+    content: "Remember that the key to collecting and utilizing customer feedback effectively is to listen carefully to your clients action",
+    rating: 4,
+    img: "/avatar1.jpg"
   },
   {
-    name: "Sarah Jenkins",
-    role: "CEO, Global Retailers",
-    content: "The real-time tracking is a game changer. We can give our customers down-to-the-minute updates on their cargo status. Truly world-class service.",
-    rating: 5,
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100"
+    name: "Dianne Russell",
+    role: "Web Designer",
+    content: "Good services typically meet or exceed customer expectations, provide value for money, and result in customers satisfaction.",
+    rating: 4,
+    img: "/avatar2.jpg"
   },
   {
-    name: "Michael Chen",
-    role: "Operations Director",
-    content: "Excellent handling of fragile cargo. Their specialized packing team ensured our high-value electronics arrived without a single scratch.",
-    rating: 5,
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100"
+    name: "Darlene Robertson",
+    role: "Founder Of CEO",
+    content: "Collecting feedback from clients is critical part of running successful service business. can help you understand your customers.",
+    rating: 4,
+    img: "/avatar3.jpg"
   }
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-30" />
-      <Quote className="absolute -top-10 -left-10 w-64 h-64 text-white/5 rotate-12" />
+    <section className="relative bg-white overflow-hidden py-24">
+      {/* Background World Map Pattern (Top Right) */}
+      <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
+        <img src="/world-map-dots.png" alt="pattern" className="w-full h-full object-contain" />
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
-          <div className="text-center md:text-left">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-xs font-black uppercase tracking-widest mb-4"
-            >
-              <Star className="w-3 h-3 fill-orange-500" />
-              <span>Customer Satisfaction</span>
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl font-black text-white">
-              Reliable Solutions, <br />
-              <span className="text-orange-500">Trusted by Thousands</span>
-            </h2>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="flex gap-4">
-            <button className="w-14 h-14 rounded-2xl border border-slate-800 flex items-center justify-center text-white hover:bg-orange-500 hover:border-orange-500 transition-all">
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button className="w-14 h-14 rounded-2xl bg-orange-500 flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all">
-              <ChevronRight className="w-6 h-6" />
-            </button>
+          {/* Left Side: Large Visual */}
+          <div className="lg:col-span-5 relative h-[600px] rounded-sm overflow-hidden shadow-2xl">
+            <img 
+              src="/workers-with-laptop.jpg" 
+              alt="Our Team" 
+              className="w-full h-full object-cover"
+            />
+            {/* Blue Overlay Gradient */}
+            <div className="absolute inset-0 bg-blue-900/10" />
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {REVIEWS.map((review, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between group hover:border-orange-500/50 transition-colors"
-            >
-              <div className="space-y-6">
-                <div className="flex gap-1">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-orange-500 text-orange-500" />
-                  ))}
-                </div>
-                
-                <p className="text-slate-300 text-lg font-medium leading-relaxed italic">
-                  &quot;{review.content}&quot;
-                </p>
+          {/* Right Side: Content & Cards */}
+          <div className="lg:col-span-7 space-y-10">
+            {/* Header */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-[#f7941d]">
+                <Box size={16} className="fill-current" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em]">Testimonial</span>
               </div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                What Client&apos;s say about <br /> Our Services
+              </h2>
+            </div>
 
-              <div className="mt-10 pt-8 border-t border-slate-800 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-slate-700">
-                  <img 
-                    src={review.img} 
-                    alt={review.name} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" 
-                  />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold">{review.name}</h4>
-                  <p className="text-orange-500 text-xs font-black uppercase tracking-widest">
-                    {review.role}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            {/* Testimonial Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {REVIEWS.map((review, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white border border-gray-100 shadow-xl p-6 relative flex flex-col justify-between h-full group"
+                >
+                  <div className="space-y-4">
+                    {/* Header: Title and Stars */}
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-bold text-slate-900 text-sm">Good Services</h4>
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star 
+                            key={i} 
+                            size={12} 
+                            className={i < review.rating ? "fill-[#f7941d] text-[#f7941d]" : "text-gray-300"} 
+                          />
+                        ))}
+                      </div>
+                    </div>
 
-        {/* Brand Trust Bar */}
-        <div className="mt-24 pt-16 border-t border-slate-900 flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-          <span className="text-2xl font-black text-white tracking-tighter">TECHCORP</span>
-          <span className="text-2xl font-black text-white tracking-tighter">MODERNRAIL</span>
-          <span className="text-2xl font-black text-white tracking-tighter">GLOBAL_LOG</span>
-          <span className="text-2xl font-black text-white tracking-tighter">FASTSHIP</span>
+                    <p className="text-gray-500 text-[13px] leading-relaxed italic">
+                      &quot;{review.content}&quot;
+                    </p>
+                  </div>
+
+                  {/* Footer: User Info with Orange "Wave" Detail */}
+                  <div className="mt-8 relative">
+                    {/* The Orange Background Shape */}
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-[#f7941d] rounded-bl-[2rem] rounded-tr-[2rem] -mx-6 -mb-6 z-0" />
+                    
+                    <div className="relative z-10 flex items-center gap-3 px-2 pb-2">
+                      <div className="w-12 h-12 rounded-full border-4 border-white overflow-hidden shadow-md">
+                        <img src={review.img} alt={review.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="text-white">
+                        <h5 className="font-black text-[13px] leading-none mb-1">{review.name}</h5>
+                        <p className="text-[10px] font-bold opacity-90">{review.role}</p>
+                      </div>
+                      
+                      {/* Floating Quote Icon */}
+                      <div className="ml-auto bg-white rounded-full p-1.5 shadow-sm">
+                        <span className="text-[#f7941d] text-[10px] font-black italic">“”</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

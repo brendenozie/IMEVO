@@ -1,5 +1,6 @@
 "use client";
 
+import { AboutSection } from "@/components/AboutUsSection";
 import { BackToTop } from "@/components/BackToTop";
 import { BlogSection } from "@/components/BlogSection";
 import { BookingSection } from "@/components/BookingSection";
@@ -24,7 +25,8 @@ export default function HomePage() {
       <main>
         <HeroSection />
         
-        {/* About & Services Summary */}
+        <AboutSection />
+        
         <ServicesGrid />
 
         {/* The Quote/Opportunity Form Section */}
