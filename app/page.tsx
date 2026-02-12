@@ -13,19 +13,19 @@ import { StatsSection } from "@/components/StatsSection";
 import { TeamSection } from "@/components/TeamSection";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkShowcase } from "@/components/WorkShowcase";
-import { HeroSection } from "../components/HeroSection";
-import { Footer } from "../components/Footer";
+import { HeroSection } from "@/components/HeroSection";
+import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
       <Navbar />
-      
+
       <main>
         <HeroSection />
-        
+
         <AboutSection />
-        
+
         <ServicesGrid />
 
         {/* The Quote/Opportunity Form Section */}
@@ -42,7 +42,7 @@ export default function HomePage() {
         <StatsSection />
 
         <NetworkMap />
-        
+
         <BlogSection />
 
         <ContactSection />
