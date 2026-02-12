@@ -14,8 +14,6 @@ export function Navbar() {
     { name: "Home", hasSub: true },
     { name: "About", hasSub: false },
     { name: "Services", hasSub: true },
-    { name: "Portfolio", hasSub: true },
-    { name: "Pages", hasSub: true },
     { name: "News", hasSub: true },
     { name: "Contact Us", hasSub: false },
   ];
