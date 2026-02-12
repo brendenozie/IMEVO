@@ -5,7 +5,6 @@ import { BackToTop } from "@/components/BackToTop";
 import { BlogSection } from "@/components/BlogSection";
 import { BookingSection } from "@/components/BookingSection";
 import { ContactSection } from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/navigation";
 import { NetworkMap } from "@/components/NetworkMap";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
@@ -15,6 +14,7 @@ import { TeamSection } from "@/components/TeamSection";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkShowcase } from "@/components/WorkShowcase";
 import { HeroSection } from "../components/HeroSection";
+import { Footer } from "../components/Footer";
 
 export default function HomePage() {
   return (
