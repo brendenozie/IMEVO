@@ -1,57 +1,57 @@
 "use client";
 
+import { BackToTop } from "@/components/BackToTop";
+import { BlogSection } from "@/components/BlogSection";
+import { BookingSection } from "@/components/BookingSection";
+import { ContactSection } from "@/components/ContactSection";
+import { Footer } from "@/components/Footer";
+import { FooterSections } from "@/components/FooterSections";
+import { HeroSection } from "@/components/HeroSection";
 import { Navbar } from "@/components/navigation";
-import { useAuth } from "@/components/auth-context";
-import {EnrollmentSection}  from "@/components/pricing-plans";
-import { HeroSection } from "@/components/heroSection";
-import { CourseCatalog } from "@/components/CourseCatalog";
-import { CurriculumTimeline } from "@/components/CurriculumTimeline";
-import { ExpertiseSection } from "@/components/ExpertiseSection";
-import { CourseTrackSection } from "@/components/CourseTrackSection";
-import { TrustStatsSection } from "@/components/TrustStatsSection";
+import { NetworkMap } from "@/components/NetworkMap";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
+import { ServicesGrid } from "@/components/ServicesGrid";
+import { StatsSection } from "@/components/StatsSection";
+import { TeamSection } from "@/components/TeamSection";
 import { Testimonials } from "@/components/Testimonials";
-import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/footer";
-import { ProjectGallery } from "@/components/ProjectGallery";
-import { MentorSpotlight } from "@/components/MentorSpotlight";
-import { SupportSection } from "@/components/SupportSection";
-
+import { WorkShowcase } from "@/components/WorkShowcase";
 
 export default function HomePage() {
-  const { user, loading: authLoading } = useAuth();
-
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <Navbar />
-
+      <Navbar />
+      
+      <main>
         <HeroSection />
-
-        <CourseCatalog />
-
-        <ProjectGallery />
         
-        <CurriculumTimeline />
+        {/* About & Services Summary */}
+        <ServicesGrid />
 
-        <MentorSpotlight />
-
-        <ExpertiseSection />
-
-        <CourseTrackSection />
-
-        <TrustStatsSection />
+        {/* The Quote/Opportunity Form Section */}
+        <BookingSection />
 
         <Testimonials />
 
-        <CTASection />
-        
-        <EnrollmentSection />
+        <WorkShowcase />
 
-        <SupportSection />
+        <ProcessTimeline />
+
+        <TeamSection />
+
+        <StatsSection />
+
+        <NetworkMap />
         
-      </div>
-      
-        <Footer />
+        <BlogSection />
+
+        <FooterSections />
+
+        <ContactSection />
+      </main>
+
+      <Footer />
+
+      <BackToTop />
     </div>
   );
 }
