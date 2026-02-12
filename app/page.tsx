@@ -6,7 +6,6 @@ import { BlogSection } from "@/components/BlogSection";
 import { BookingSection } from "@/components/BookingSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/HeroSection";
 import { Navbar } from "@/components/navigation";
 import { NetworkMap } from "@/components/NetworkMap";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
@@ -15,6 +14,7 @@ import { StatsSection } from "@/components/StatsSection";
 import { TeamSection } from "@/components/TeamSection";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkShowcase } from "@/components/WorkShowcase";
+import { HeroSection } from "../components/HeroSection";
 
 export default function HomePage() {
   return (
