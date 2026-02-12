@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Send, ArrowRight, Globe, MapPin, Users, Clock } from "lucide-react";
 
@@ -33,10 +34,13 @@ export function StatsSection() {
       <div className="relative h-[450px] w-full flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/container-yard.jpg" 
+          <Image 
+            src="/pexels-pavel-danilyuk-6407583.png" 
             alt="Logistics Background" 
             className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            style={{ objectFit: "cover" }}
           />
           <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[2px]" />
         </div>

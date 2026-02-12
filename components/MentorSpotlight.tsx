@@ -70,7 +70,6 @@ export function MentorSpotlight() {
                 <Image 
                   src={mentor.image} 
                   alt={mentor.name} 
-                  fill 
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
                 />
                 

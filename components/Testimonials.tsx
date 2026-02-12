@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star, Box } from "lucide-react";
+import Image from "next/image";
 
 const REVIEWS = [
   {
@@ -32,7 +33,15 @@ export function Testimonials() {
     <section className="relative bg-white overflow-hidden py-24">
       {/* Background World Map Pattern (Top Right) */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
-        <img src="/world-map-dots.png" alt="pattern" className="w-full h-full object-contain" />
+        <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-contain">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="2" fill="#f7941d" />
+            </pattern>
+          </defs>
+          <rect width="800" height="600" fill="url(#dots)" />
+        </svg>
+        {/* <img src="/world-map-dots.png" alt="pattern" className="w-full h-full object-contain" /> */}
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -40,10 +49,13 @@ export function Testimonials() {
           
           {/* Left Side: Large Visual */}
           <div className="lg:col-span-5 relative h-[600px] rounded-sm overflow-hidden shadow-2xl">
-            <img 
-              src="/workers-with-laptop.jpg" 
+            <Image 
+              src="/pexels-pavel-danilyuk-6407523.jpg" 
               alt="Our Team" 
               className="w-full h-full object-cover"
+              width={800}
+              height={600}
+              style={{ objectFit: "cover" }}
             />
             {/* Blue Overlay Gradient */}
             <div className="absolute inset-0 bg-blue-900/10" />
@@ -100,7 +112,7 @@ export function Testimonials() {
                     
                     <div className="relative z-10 flex items-center gap-3 px-2 pb-2">
                       <div className="w-12 h-12 rounded-full border-4 border-white overflow-hidden shadow-md">
-                        <img src={review.img} alt={review.name} className="w-full h-full object-cover" />
+                        <Image src={review.img} alt={review.name} className="w-full h-full object-cover" width={48} height={48} />
                       </div>
                       <div className="text-white">
                         <h5 className="font-black text-[13px] leading-none mb-1">{review.name}</h5>

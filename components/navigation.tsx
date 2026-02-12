@@ -48,7 +48,7 @@ export function Navbar() {
               <div className="bg-blue-700 rounded-full p-2 flex items-center justify-center">
                 <Truck className="w-6 h-6 text-white" />
               </div>
-              <span className="text-4xl font-black tracking-tight italic">Logistik</span>
+              <span className="text-4xl font-black tracking-tight italic">Imevo</span>
             </div>
           </div>
 

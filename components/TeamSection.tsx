@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Facebook, Twitter, Linkedin, Instagram, Share2 } from "lucide-react";
+import Image from "next/image";
 
 const TEAM_MEMBERS = [
   {
@@ -59,9 +60,12 @@ export function TeamSection() {
             >
               <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-100 aspect-[4/5] mb-6">
                 {/* Image with Grayscale Filter */}
-                <img 
+                <Image 
                   src={member.img} 
-                  alt={member.name}
+                  alt={member.name}                  
+                  width={400}
+                  height={500}
+                  style={{ objectFit: "cover" }}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-in-out"
                 />
 

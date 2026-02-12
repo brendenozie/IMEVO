@@ -2,24 +2,25 @@
 
 import { motion } from "framer-motion";
 import { Plus, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const PROJECTS = [
   {
     title: "Air Freight Division",
     category: "Global Logistics",
-    image: "/air-cargo.jpg",
+    image: "/pexels-rdne-7363242.png",
     size: "col-span-1 lg:col-span-2"
   },
   {
     title: "Container Storage",
     category: "Infrastructure",
-    image: "/containers.jpg",
+    image: "/pexels-tima-miroshnichenko-6169676.png",
     size: "col-span-1"
   },
   {
     title: "Maritime Shipping",
     category: "Ocean Freight",
-    image: "/ship.jpg",
+    image: "/pexels-tima-miroshnichenko-6169046.png",
     size: "col-span-1 lg:col-span-3"
   }
 ];
@@ -50,9 +51,12 @@ export function WorkShowcase() {
               transition={{ delay: idx * 0.1 }}
               className={`group relative overflow-hidden rounded-[2rem] aspect-square lg:aspect-video ${project.size}`}
             >
-              <img 
+              <Image 
                 src={project.image} 
                 alt={project.title}
+                width={800}
+                height={600}
+                style={{ objectFit: "cover" }}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
               />
               

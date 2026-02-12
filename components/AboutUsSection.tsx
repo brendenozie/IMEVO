@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Send, Clock, DollarSign, Box } from "lucide-react";
 
 export function AboutSection() {
@@ -14,17 +15,17 @@ export function AboutSection() {
               {/* Small images column */}
               <div className="col-span-4 space-y-4">
                 <div className="h-48 overflow-hidden rounded-sm">
-                  <img src="/containers.jpg" alt="Containers" className="w-full h-full object-cover" />
+                  <Image src="/pexels-ptrcwrnr-18395054.png" alt="Containers" width={400} height={192} className="w-full h-full object-cover" />
                 </div>
                 <div className="h-64 overflow-hidden rounded-sm">
-                  <img src="/truck-side.jpg" alt="Logistics Truck" className="w-full h-full object-cover" />
+                  <Image src="/pexels-kindelmedia-6868164.png" alt="Logistics Truck" width={400} height={256} className="w-full h-full object-cover" />
                 </div>
               </div>
               
               {/* Main large image */}
               <div className="col-span-8">
                 <div className="h-[500px] overflow-hidden rounded-sm">
-                  <img src="/worker.jpg" alt="Logistics Worker" className="w-full h-full object-cover" />
+                  <Image src="/pexels-rdne-7363203.png" alt="Logistics Worker" width={800} height={500} className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -64,9 +65,9 @@ export function AboutSection() {
               </button>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-100">
-                  <img src="/ceo-avatar.jpg" alt="CEO" className="w-full h-full object-cover" />
+                  <Image src="/ceo-avatar.png" alt="CEO" width={48} height={48} className="w-full h-full object-cover" />
                 </div>
-                <img src="/signature.png" alt="Signature" className="h-10 opacity-80" />
+                <Image src="/signature.png" alt="Signature" width={100} height={40} className="h-10 opacity-80" />
               </div>
             </div>
 

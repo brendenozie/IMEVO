@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar } from "lucide-react";
+import Image from "next/image";
 
 const STATS = [
   { val: "15k+", label: "Successful Deliveries" },
@@ -46,15 +47,15 @@ export function FooterSections() {
           {POSTS.map((post, i) => (
             <motion.div key={i} whileHover={{ x: 10 }} className="flex gap-6 items-center p-6 bg-slate-50 rounded-[2rem] group cursor-pointer">
               <div className="w-32 h-32 rounded-2xl bg-slate-200 overflow-hidden flex-shrink-0">
-                <img src={`/blog${i+1}.jpg`} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                <Image src={"https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800"} alt={post.title || "Blog Image"} className="w-full h-full object-cover group-hover:scale-110 transition-transform" width={160} height={160} style={{ objectFit: "cover" }} />
               </div>
               <div className="space-y-2">
                 <div className="flex items-center gap-4 text-xs font-bold text-slate-400">
-                  <span className="text-orange-500 uppercase">{post.cat}</span>
-                  <div className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</div>
+                  <span className="text-orange-500 uppercase">{post.cat || "Category"}</span>
+                  <div className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date || "Date"}</div>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-orange-500 transition-colors">
-                  {post.title}
+                  {post.title || "Title"}
                 </h3>
               </div>
             </motion.div>

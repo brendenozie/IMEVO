@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { User, Mail, Scale, MapPin, ChevronDown, Send, Play, Box } from "lucide-react";
 
@@ -9,10 +10,12 @@ export function BookingSection() {
       {/* Background Image Container (Right Side) */}
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0">
         <div className="absolute inset-0 bg-black/20 z-10" />
-        <img 
-          src="/truck-and-plane.jpg" 
+        <Image 
+          src="/pexels-rdne-73632421.png" 
           alt="Logistics" 
           className="w-full h-full object-cover"
+          width={800}
+          height={600}          
         />
         
         {/* Floating Play Button */}

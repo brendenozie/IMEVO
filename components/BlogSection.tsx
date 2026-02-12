@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Calendar, User, ArrowRight, Tag } from "lucide-react";
+import Image from "next/image";
 
 const POSTS = [
   {
@@ -67,27 +68,30 @@ export function BlogSection() {
             className="lg:col-span-7 group cursor-pointer"
           >
             <div className="relative overflow-hidden rounded-[3rem] aspect-[16/10] mb-8 bg-slate-200">
-              <img 
-                src={featuredPost?.image} 
-                alt={featuredPost?.title}
+              <Image 
+                src={featuredPost?.image || "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800"} 
+                alt={featuredPost?.title || "Featured Post"}
+                width={800}
+                height={500}
+                style={{ objectFit: "cover" }}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-6 left-6 flex gap-2">
                 <span className="px-4 py-2 bg-orange-500 text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-lg">
-                  {featuredPost?.category}
+                  {featuredPost?.category || "Category"}
                 </span>
               </div>
             </div>
             <div className="space-y-4 px-2">
               <div className="flex items-center gap-6 text-slate-400 text-sm font-bold">
-                <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-orange-500" /> {featuredPost?.date}</div>
-                <div className="flex items-center gap-2"><User className="w-4 h-4 text-orange-500" /> By {featuredPost?.author}</div>
+                <div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-orange-500" /> {featuredPost?.date || "Date"}</div>
+                <div className="flex items-center gap-2"><User className="w-4 h-4 text-orange-500" /> By {featuredPost?.author || "Author"}</div>
               </div>
               <h3 className="text-3xl font-black text-slate-900 group-hover:text-orange-500 transition-colors leading-tight">
-                {featuredPost?.title}
+                {featuredPost?.title || "Title"}
               </h3>
               <p className="text-slate-500 leading-relaxed max-w-2xl">
-                {featuredPost?.excerpt}
+                {featuredPost?.excerpt || "Excerpt"}
               </p>
             </div>
           </motion.div>
@@ -103,23 +107,26 @@ export function BlogSection() {
                 className="group flex gap-6 p-4 rounded-[2rem] hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500"
               >
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden shrink-0 bg-slate-200">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
+                  <Image 
+                    src={post.image || "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800"} 
+                    alt={post.title || "Post Image"} 
+                    width={160}
+                    height={160}
+                    style={{ objectFit: "cover" }}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="flex flex-col justify-center space-y-3">
                   <div className="flex items-center gap-3">
                     <span className="text-[10px] font-black uppercase tracking-tighter text-orange-500 bg-orange-50 px-2 py-0.5 rounded-md">
-                      {post.category}
+                      {post.category || "Category"}
                     </span>
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      {post.date}
+                      {post.date || "Date"}
                     </span>
                   </div>
                   <h4 className="text-lg font-black text-slate-900 leading-snug group-hover:text-orange-500 transition-colors">
-                    {post.title}
+                    {post.title || "Title"}
                   </h4>
                   <div className="flex items-center gap-2 text-xs font-black text-slate-900 group-hover:gap-4 transition-all">
                     Read More <ArrowRight className="w-3 h-3 text-orange-500" />

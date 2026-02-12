@@ -17,7 +17,7 @@ export function Footer() {
               <div className="bg-orange-500 p-2 rounded-lg">
                 <Ship className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-black tracking-tighter">LOGISTIK.</span>
+              <span className="text-2xl font-black tracking-tighter">IMEVO.</span>
             </div>
             <p className="text-slate-400 leading-relaxed text-sm">
               Revolutionizing global supply chains through integrated rail, road, and maritime networks. Precision-driven logistics for the modern era.

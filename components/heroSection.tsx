@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Send, Play, ArrowRight, ArrowLeft, Box } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -9,10 +10,14 @@ export function HeroSection() {
       {/* Background with Darkened Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" />
-        <img 
-          src="/truck-rail-bg.jpg" 
+        <Image 
+          src="/close-up-delivery-person-with-parcel.jpg" 
           className="w-full h-full object-cover" 
-          alt="Rail Freight and Logistics" 
+          alt="Rail Freight and Logistics"
+          width={1920}
+          height={1080}
+          style={{ objectFit: "cover" }}
+          priority
         />
       </div>
 

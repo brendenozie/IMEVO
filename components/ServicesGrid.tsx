@@ -2,24 +2,25 @@
 
 import { motion } from "framer-motion";
 import { Bike, Bike as Bicycle, Plane, ArrowRight, Box } from "lucide-react";
+import Image from "next/image";
 
 const SERVICES = [
   {
     title: "Bike Freight",
     desc: "Bike freight, also known as bicycle logistics, refers to the transport of goods or cargo.",
-    image: "/bike-delivery.jpg",
+    image: "/portrait-young-african-guy-accepts-order-by-phone-motorbike-holding-boxes-with-pizza-sit-his-bike-urban-place.png",
     icon: Bike,
   },
   {
-    title: "Bicycle Freight",
-    desc: "Bicycle freight services can be provided by specialized logistics companies.",
-    image: "/bicycle-delivery.jpg",
+    title: "Van Freight",
+    desc: "Van freight services can be provided by specialized logistics companies.",
+    image: "/pexels-kindelmedia-6868164.png",
     icon: Bicycle,
   },
   {
     title: "Air Freight",
     desc: "Air freight offers several advantages over other modes of transportation.",
-    image: "/air-freight.jpg",
+    image: "/pexels-rdne-7464409.png",
     icon: Plane,
   },
 ];
@@ -56,10 +57,13 @@ export function ServicesGrid() {
             >
               {/* Image Container */}
               <div className="relative h-[400px] w-full overflow-hidden rounded-sm shadow-lg">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{ objectFit: "cover" }}
+                  width={400}
+                  height={400}
                 />
                 {/* Overlay to ensure readability if needed */}
                 <div className="absolute inset-0 bg-black/5" />

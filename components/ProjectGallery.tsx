@@ -79,7 +79,6 @@ export function ProjectGallery() {
               <Image
                 src={project.image}
                 alt={project.title}
-                fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
