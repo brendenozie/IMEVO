@@ -11,7 +11,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" />
         <Image 
-          src="/close-up-delivery-person-with-parcel.jpg" 
+          src="/close-up-delivery-person-with-parcel.png" 
           className="w-full h-full object-cover" 
           alt="Rail Freight and Logistics"
           width={1920}
