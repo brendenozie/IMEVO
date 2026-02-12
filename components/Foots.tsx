@@ -2,7 +2,7 @@
 
 import { Ship, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from "lucide-react";
 
-export function Footer() {
+export function Foots() {
   return (
     <footer className="bg-slate-900 text-white pt-24 pb-12 overflow-hidden relative">
       {/* Subtle Background Decoration */}

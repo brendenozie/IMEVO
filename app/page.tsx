@@ -13,8 +13,8 @@ import { StatsSection } from "@/components/StatsSection";
 import { TeamSection } from "@/components/TeamSection";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkShowcase } from "@/components/WorkShowcase";
-import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { Foots } from "@/components/Foots";
 
 export default function HomePage() {
   return (
@@ -48,7 +48,7 @@ export default function HomePage() {
         <ContactSection />
       </main>
 
-      <Footer />
+      <Foots />
 
       <BackToTop />
     </div>
