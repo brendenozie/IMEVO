@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Send, Play, ArrowRight, ArrowLeft, Box } from "lucide-react";
 import Image from "next/image";
 
-export function HeroSection() {
+export function Hero() {
   const fadeUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },

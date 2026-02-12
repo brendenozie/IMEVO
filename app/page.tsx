@@ -13,8 +13,8 @@ import { StatsSection } from "@/components/StatsSection";
 import { TeamSection } from "@/components/TeamSection";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkShowcase } from "@/components/WorkShowcase";
-import { HeroSection } from "@/components/HeroSection";
 import { Footer } from "@/components/Footer";
+import { Hero } from "@/components/Hero";
 
 export default function HomePage() {
   return (
@@ -22,7 +22,7 @@ export default function HomePage() {
       <Navbar />
 
       <main>
-        <HeroSection />
+        <Hero />
 
         <AboutSection />
 
