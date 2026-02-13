@@ -112,7 +112,7 @@ export function AboutSection() {
               {/* Interactive Features Grid */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: CheckCircle2, label: "Real-time Tracking" },
+                  { icon: CheckCircle2, label: "Reliable" },
                   { icon: CheckCircle2, label: "Global Network" },
                   { icon: CheckCircle2, label: "Secure Packaging" },
                   { icon: CheckCircle2, label: "24/7 Support" },

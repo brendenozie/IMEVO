@@ -135,9 +135,9 @@ export function BookingSection() {
                         <label className="text-[10px] font-black uppercase text-white/40 tracking-[0.2em]">Logistics Type</label>
                         <div className="relative">
                           <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white outline-none appearance-none focus:border-[#f7941d]/50 transition-colors">
-                            <option className="bg-[#111]">Ocean Freight</option>
-                            <option className="bg-[#111]">Air Express</option>
-                            <option className="bg-[#111]">Road Distribution</option>
+                            <option className="bg-[#111]">Transport</option>
+                            <option className="bg-[#111]">Logistics</option>
+                            <option className="bg-[#111]">Waste Management</option>
                           </select>
                           <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={18} />
                         </div>

@@ -6,20 +6,20 @@ import Image from "next/image";
 
 const PROJECTS = [
   {
-    title: "Air Freight Division",
+    title: "Logistics Division",
     category: "Global Logistics",
     image: "/pexels-rdne-7363242.png",
     gridClass: "lg:col-span-2 lg:row-span-1",
   },
   {
-    title: "Container Storage",
+    title: "Transport Hub",
     category: "Infrastructure",
     image: "/pexels-tima-miroshnichenko-6169676.png",
     gridClass: "lg:col-span-1 lg:row-span-1",
   },
   {
-    title: "Maritime Shipping",
-    category: "Ocean Freight",
+    title: "Waste Management",
+    category: "Waste Management",
     image: "/pexels-tima-miroshnichenko-6169046.png",
     gridClass: "lg:col-span-3 lg:row-span-1",
   }

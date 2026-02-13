@@ -6,24 +6,24 @@ import Image from "next/image";
 
 const SERVICES = [
   {
-    title: "Bike Freight",
-    desc: "Speedy urban logistics designed for high-density delivery and document transport.",
+    title: "Transport",
+    desc: "Efficient and reliable urban transport solutions tailored to your needs.",
     image: "/portrait-young-african-guy-accepts-order-by-phone-motorbike-holding-boxes-with-pizza-sit-his-bike-urban-place.png",
     icon: Bike,
     accent: "bg-orange-500",
     tag: "Urban Express"
   },
   {
-    title: "Van Freight",
-    desc: "Flexible van solutions for medium-weight cargo with door-to-door precision and safety.",
+    title: "Logistics",
+    desc: "Comprehensive logistics services ensuring timely and secure delivery across all channels.",
     image: "/pexels-kindelmedia-6868164.png",
     icon: Truck,
     accent: "bg-blue-600",
     tag: "Door-to-Door"
   },
   {
-    title: "Air Freight",
-    desc: "Global reach with rapid air transport for time-sensitive, international logistics needs.",
+    title: "Waste Management",
+    desc: "Innovative waste management solutions promoting sustainability and environmental responsibility.",
     image: "/pexels-rdne-7464409.png",
     icon: Plane,
     accent: "bg-slate-950",
