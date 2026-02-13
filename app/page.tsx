@@ -26,9 +26,10 @@ export default function HomePage() {
 
         <AboutSection />
 
+        <TeamSection />
+
         <ServicesGrid />
 
-        {/* The Quote/Opportunity Form Section */}
         <BookingSection />
 
         <Testimonials />
@@ -36,8 +37,6 @@ export default function HomePage() {
         <WorkShowcase />
 
         <ProcessTimeline />
-
-        <TeamSection />
 
         <StatsSection />
 

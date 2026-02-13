@@ -46,7 +46,7 @@ export function Testimonials() {
               className="relative h-[500px] lg:h-[650px] rounded-3xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)]"
             >
               <Image 
-                src="/pexels-pavel-danilyuk-6407523.jpg" 
+                src="/pexels-pavel-danilyuk-6407523.png" 
                 alt="Our Happy Client" 
                 className="w-full h-full object-cover transition-transform duration-[2s] hover:scale-110"
                 fill

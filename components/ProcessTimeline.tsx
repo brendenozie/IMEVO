@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
-import { MousePointer2, Box, Plane, Truck, Box as BoxIcon, ArrowRight } from "lucide-react";
+import { MousePointer2, Box, Plane, Truck, Box as BoxIcon, ArrowRight, Settings2 } from "lucide-react";
 import { useRef } from "react";
 
 const STEPS = [
@@ -11,18 +11,18 @@ const STEPS = [
     desc: "Instant estimates tailored to your specific logistical dimensions and cargo requirements." 
   },
   { 
-    icon: Box, 
-    title: "Picking Product", 
-    desc: "Precision selection from our global inventory network using AI-driven sorting." 
+    icon: Settings2, 
+    title: "Optimization", 
+    desc: "Precision route planning using AI-driven sorting to minimize transit latency." 
   },
   { 
-    icon: Plane, 
-    title: "Product Packaging", 
+    icon: Box, 
+    title: "Secure Packing", 
     desc: "Industrial-grade protection designed to withstand transcontinental transit." 
   },
   { 
     icon: Truck, 
-    title: "Global Transport", 
+    title: "Global Link", 
     desc: "Seamless delivery via our integrated air, sea, and land distribution channels." 
   }
 ];
@@ -41,28 +41,26 @@ export function ProcessTimeline() {
   });
 
   return (
-    <section ref={containerRef} className="py-24 lg:py-40 bg-slate-950 relative overflow-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#f7941d] rounded-full blur-[150px]" />
-      </div>
-
+    <section ref={containerRef} className="py-24 lg:py-40 bg-white relative overflow-hidden">
+      {/* Structural Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      
       <div className="container mx-auto px-6 relative z-10">
         
         {/* --- SECTION HEADER --- */}
         <div className="flex flex-col items-center text-center mb-32 space-y-6">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 px-5 py-2 bg-slate-100 border border-slate-200 rounded-full"
           >
-            <BoxIcon size={14} className="text-[#f7941d] fill-current" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80">Our Methodology</span>
+            <BoxIcon size={14} className="text-[#f7941d]" />
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500">Execution Framework</span>
           </motion.div>
           
-          <h2 className="text-5xl md:text-7xl font-black text-white uppercase italic leading-none">
-            The <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1.2px white' }}>Logistics</span> <br /> 
+          <h2 className="text-5xl md:text-8xl font-black text-slate-950 uppercase italic leading-[0.85] tracking-tighter">
+            The <span className="text-transparent stroke-slate-950" style={{ WebkitTextStroke: '2px #0f172a' }}>Logistics</span> <br /> 
             Command Chain
           </h2>
         </div>
@@ -71,73 +69,77 @@ export function ProcessTimeline() {
         <div className="relative">
           
           {/* Progress Connector (Desktop) */}
-          <div className="hidden lg:block absolute top-20 left-0 w-full h-[2px] bg-white/10">
+          <div className="hidden lg:block absolute top-12 left-0 w-full h-[1px] bg-slate-200">
             <motion.div 
               style={{ scaleX }}
-              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#f7941d] origin-left"
+              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#f7941d] origin-left h-[2px]"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12">
             {STEPS.map((step, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.15, duration: 0.8 }}
+                transition={{ delay: idx * 0.1, duration: 0.8 }}
                 className="relative group"
               >
                 {/* Node & Icon */}
-                <div className="relative mb-12 flex lg:justify-start justify-center">
-                  <div className="relative z-10 w-24 h-24 rounded-3xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-[#f7941d]/50 transition-all duration-500 shadow-2xl group-hover:-translate-y-2">
-                    <step.icon size={32} className="text-white group-hover:text-[#f7941d] transition-colors" />
+                <div className="relative mb-10 flex lg:justify-start justify-center">
+                  <div className="relative z-10 w-24 h-24 rounded-[2rem] bg-white border-2 border-slate-100 flex items-center justify-center group-hover:border-[#f7941d] transition-all duration-500 shadow-xl group-hover:shadow-[#f7941d]/10 group-hover:-translate-y-2">
+                    <step.icon size={32} className="text-slate-900 group-hover:text-[#f7941d] transition-colors" />
                     
-                    {/* Glowing Aura */}
-                    <div className="absolute inset-0 bg-[#f7941d]/0 group-hover:bg-[#f7941d]/10 rounded-3xl transition-all duration-500" />
+                    {/* Background Index (Ghost) */}
+                    <span className="absolute -bottom-4 -right-2 text-6xl font-black text-slate-100 group-hover:text-orange-50 transition-colors -z-10 italic">
+                      0{idx + 1}
+                    </span>
                   </div>
 
-                  {/* Number Badge (Modern Style) */}
-                  <div className="absolute -top-4 lg:-right-4 right-1/2 translate-x-12 lg:translate-x-0 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center text-xs font-black italic shadow-[0_10px_20px_rgba(255,255,255,0.2)]">
-                    {idx + 1}
+                  {/* Desktop Step Indicator Dot */}
+                  <div className="hidden lg:block absolute -top-[53px] left-11">
+                     <div className="w-3 h-3 rounded-full bg-white border-2 border-slate-300 group-hover:border-[#f7941d] transition-colors relative z-20" />
                   </div>
                 </div>
 
                 {/* Text Content */}
-                <div className="space-y-4 lg:text-left text-center">
-                  <h3 className="text-2xl font-black text-white uppercase italic tracking-tight group-hover:text-[#f7941d] transition-colors">
+                <div className="space-y-4 lg:text-left text-center px-4">
+                  <h3 className="text-2xl font-black text-slate-900 uppercase italic tracking-tight group-hover:text-orange-600 transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed font-medium">
+                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
                     {step.desc}
                   </p>
                   
-                  {/* Visual Connector (Desktop Arrow) */}
-                  {idx !== STEPS.length - 1 && (
-                    <div className="hidden lg:flex items-center gap-2 text-white/10 group-hover:text-[#f7941d]/40 transition-colors pt-4">
-                      <div className="h-[1px] w-full bg-current" />
-                      <ArrowRight size={14} />
-                    </div>
-                  )}
+                  {/* Decorative Link */}
+                  <div className="flex items-center lg:justify-start justify-center gap-2 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                    <span className="text-[10px] font-black uppercase text-[#f7941d]">View Metrics</span>
+                    <ArrowRight size={12} className="text-[#f7941d]" />
+                  </div>
                 </div>
 
                 {/* Mobile Connector Line */}
                 {idx !== STEPS.length - 1 && (
-                  <div className="lg:hidden absolute left-1/2 -bottom-12 w-[1px] h-8 bg-gradient-to-b from-[#f7941d] to-transparent" />
+                  <div className="lg:hidden absolute left-1/2 -bottom-10 w-[2px] h-8 bg-slate-100" />
                 )}
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* --- BOTTOM CTA --- */}
+        {/* --- BOTTOM ACTION --- */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-32 text-center"
+          className="mt-32 flex flex-col items-center"
         >
-          <button className="px-12 py-6 bg-[#f7941d] text-white font-black uppercase text-xs tracking-[0.4em] rounded-full hover:bg-white hover:text-black transition-all shadow-[0_20px_40px_rgba(247,148,29,0.2)]">
-            Start Your Shipment
+          <div className="w-[1px] h-20 bg-gradient-to-b from-slate-200 to-transparent mb-10" />
+          <button className="group relative overflow-hidden px-16 py-6 bg-slate-950 rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl">
+            <span className="relative z-10 text-white font-black uppercase text-xs tracking-[0.4em]">
+              Initialize Network
+            </span>
+            <div className="absolute inset-0 bg-[#f7941d] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </button>
         </motion.div>
       </div>

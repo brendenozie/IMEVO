@@ -1,168 +1,196 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Globe, MapPin, Activity, Zap, Box, Radio } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, Radio, ChevronRight, Globe2, Truck, Navigation, Activity } from "lucide-react";
 
-const HUBS = [
-  { name: "Chicago", coords: "top-[32%] left-[18%]", delay: 0.2, flow: "right" },
-  { name: "London", coords: "top-[25%] left-[46%]", delay: 0.5, flow: "down" },
-  { name: "Rotterdam", coords: "top-[22%] left-[50%]", delay: 1.4, flow: "up" },
-  { name: "Dubai", coords: "top-[42%] left-[58%]", delay: 0.8, flow: "left" },
-  { name: "Singapore", coords: "top-[62%] left-[80%]", delay: 1.1, flow: "up" },
+const REGIONS = [
+  {
+    id: "nairobi",
+    title: "Nairobi Region",
+    towns: ["Nairobi City", "Kitengela", "Athi River", "Ngong", "Ongata Rongai", "Kikuyu", "Limuru", "Kimende", "Juja", "Kiambu"],
+    stats: "15-Min Node Latency"
+  },
+  {
+    id: "mt-kenya",
+    title: "Mount Kenya",
+    towns: ["Thika", "Sagana", "Muranga", "Kerugoya", "Embu", "Chuka", "Nkubu", "Meru", "Isiolo", "Nanyuki", "Nyeri"],
+    stats: "Daily Scheduled Runs"
+  },
+  {
+    id: "rift-valley",
+    title: "Rift Valley",
+    towns: ["Naivasha", "Gilgil", "Nakuru", "Molo", "Eldama Ravine", "Kabarnet", "Eldoret", "Kitale", "Kapenguria"],
+    stats: "Express Link Hubs"
+  },
+  {
+    id: "western",
+    title: "Western / Nyanza",
+    towns: ["Kisumu", "Kakamega", "Bungoma", "Busia", "Malaba", "Kericho", "Bomet", "Kisii", "Migori", "Homabay"],
+    stats: "Cross-Border Gateway"
+  },
+  {
+    id: "coast",
+    title: "Coast Region",
+    towns: ["Mombasa", "Voi", "Kilifi", "Malindi", "Diani", "Ukunda", "Wundanyi", "Kibwezi"],
+    stats: "Port-to-Door Sync"
+  },
+  {
+    id: "east-africa",
+    title: "East Africa",
+    towns: ["Uganda", "Tanzania", "South Sudan", "Rwanda"],
+    stats: "International Logistics"
+  }
 ];
 
 export function NetworkMap() {
+  const [activeRegion, setActiveRegion] = useState(REGIONS[0]);
+
   return (
-    <section className="py-24 lg:py-32 bg-[#020617] overflow-hidden relative">
-      {/* Background: Digital Grid & Radial Glow */}
-      <div className="absolute inset-0 opacity-20" 
-           style={{ 
-             backgroundImage: 'linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px)', 
-             backgroundSize: '50px 50px' 
-           }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="network" className="py-24 lg:py-40 bg-white overflow-hidden relative">
+      {/* Background Architectural Elements */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-[120px] -z-0" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
-          
-          {/* --- LEFT SIDE: THE COMMAND SIDEBAR --- */}
-          <div className="lg:col-span-4 space-y-10">
-            <div className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400"
-              >
-                <Radio className="w-4 h-4 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-[0.4em]">Live Network Feed</span>
-              </motion.div>
-              
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-[0.9] uppercase italic">
-                Global <br />
-                <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1.2px white' }}>Dominance</span>
-              </h2>
-              
-              <p className="text-slate-400 font-medium leading-relaxed max-w-sm">
-                Our neural logistics network bridges continents with zero-latency coordination. 
-                Experience shipping without borders.
-              </p>
-            </div>
+        
+        {/* --- HEADER --- */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
+          <div className="space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600"
+            >
+              <Radio className="w-3 h-3 text-orange-500 animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em]">Neural Distribution Grid</span>
+            </motion.div>
+            <h2 className="text-6xl md:text-8xl font-black text-slate-950 leading-[0.85] uppercase italic tracking-tighter">
+              Network <br />
+              <span className="text-transparent stroke-slate-950" style={{ WebkitTextStroke: '2px #0f172a' }}>Coverage</span>
+            </h2>
+          </div>
+          <div className="max-w-md space-y-4 border-l-4 border-orange-500 pl-8">
+             <p className="text-slate-500 font-medium leading-relaxed italic">
+              &quot;From the heart of Nairobi to the borders of East Africa, our neural logistics grid ensures your cargo is never out of reach.&quot;
+             </p>
+          </div>
+        </div>
 
-            {/* Micro-Stats Display */}
-            <div className="grid grid-cols-1 gap-4 pt-4">
-              {[
-                { label: "Active Nodes", val: "1,240+", icon: Zap, color: "text-orange-500" },
-                { label: "Transit Uptime", val: "99.9%", icon: Activity, color: "text-blue-500" },
-                { label: "Covered Regions", val: "160+", icon: Globe, color: "text-emerald-500" },
-              ].map((stat, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group flex items-center gap-5 p-5 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-crosshair"
-                >
-                  <div className={`w-12 h-12 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center ${stat.color} group-hover:scale-110 transition-transform`}>
-                    <stat.icon className="w-6 h-6" />
+        <div className="grid lg:grid-cols-12 gap-12 lg:h-[700px]">
+          
+          {/* --- LEFT: REGION SELECTOR --- */}
+          <div className="lg:col-span-4 flex flex-col gap-4 overflow-y-auto pr-4 custom-scrollbar py-2">
+            {REGIONS.map((region) => (
+              <button
+                key={region.id}
+                onClick={() => setActiveRegion(region)}
+                className={`group relative flex items-center justify-between p-6 rounded-[2rem] transition-all duration-500 text-left border-2 ${
+                  activeRegion.id === region.id 
+                  ? "bg-white border-orange-500 shadow-[0_20px_40px_-15px_rgba(247,148,29,0.15)] translate-x-2" 
+                  : "bg-slate-50 border-transparent hover:bg-white hover:border-slate-200"
+                }`}
+              >
+                <div className="flex items-center gap-5">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                    activeRegion.id === region.id 
+                    ? "bg-slate-950 text-white rotate-6" 
+                    : "bg-white text-slate-400 group-hover:text-slate-600 shadow-sm"
+                  }`}>
+                    {region.id === 'east-africa' ? <Globe2 size={24} /> : <Navigation size={24} />}
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase text-slate-500 tracking-[0.2em]">{stat.label}</p>
-                    <p className="text-xl font-black text-white italic">{stat.val}</p>
+                    <h4 className={`font-black uppercase italic tracking-tight text-lg ${
+                      activeRegion.id === region.id ? "text-slate-950" : "text-slate-400"
+                    }`}>{region.title}</h4>
+                    <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mt-1 ${
+                       activeRegion.id === region.id ? "text-orange-500" : "text-slate-400"
+                    }`}>{region.stats}</p>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+                <ChevronRight className={`transition-all duration-500 ${
+                  activeRegion.id === region.id ? "text-orange-500 opacity-100" : "opacity-0 -translate-x-4"
+                }`} />
+              </button>
+            ))}
           </div>
 
-          {/* --- RIGHT SIDE: THE HOLOGRAPHIC MAP --- */}
+          {/* --- RIGHT: DATA DISPLAY --- */}
           <div className="lg:col-span-8 relative">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="relative w-full aspect-[16/10] bg-slate-900/40 rounded-[4rem] border border-white/10 overflow-hidden backdrop-blur-md shadow-2xl"
-            >
-              {/* Fake Map Texture (Abstract) */}
-              <div className="absolute inset-0 opacity-30 grayscale invert mix-blend-overlay">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+            <div className="h-full bg-slate-50 rounded-[3.5rem] border-4 border-white shadow-inner overflow-hidden p-8 lg:p-16 relative">
+              
+              {/* Live Signal Graphic */}
+              <div className="absolute top-12 right-12 flex items-center gap-3">
+                 <div className="flex flex-col items-end">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Signal Status</span>
+                    <span className="text-[10px] font-black text-emerald-500 uppercase">Strong / Encryption Active</span>
+                 </div>
+                 <Activity className="text-emerald-500 w-5 h-5 animate-bounce" />
               </div>
 
-              {/* Orbital Paths (SVG) */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 500">
-                <defs>
-                  <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="#3b82f6" />
-                    <stop offset="100%" stopColor="transparent" />
-                  </linearGradient>
-                </defs>
-                
-                {/* Animated Paths */}
-                {[
-                  "M 180,160 Q 300,100 460,125",
-                  "M 460,125 Q 550,200 580,210",
-                  "M 580,210 Q 700,250 800,310",
-                  "M 180,160 Q 200,300 580,210"
-                ].map((d, idx) => (
-                  <motion.path
-                    key={idx}
-                    d={d}
-                    stroke="url(#lineGrad)"
-                    strokeWidth="1.5"
-                    fill="none"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    whileInView={{ pathLength: 1, opacity: 0.4 }}
-                    transition={{ duration: 3, delay: idx * 0.5, repeat: Infinity, repeatType: "loop" }}
-                  />
-                ))}
-              </svg>
+              {/* Dynamic Content */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeRegion.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, ease: "circOut" }}
+                  className="relative z-10 h-full flex flex-col"
+                >
+                  <h3 className="text-5xl lg:text-7xl font-black text-slate-950 uppercase italic mb-12 tracking-tighter">
+                    {activeRegion.title}
+                  </h3>
 
-              {/* Live Pulsing Hubs */}
-              {HUBS.map((hub, i) => (
-                <div key={i} className={`absolute ${hub.coords} group z-20`}>
-                  {/* Pinging Ring */}
-                  <motion.div 
-                    animate={{ scale: [1, 3], opacity: [0.6, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: hub.delay }}
-                    className="absolute -inset-4 bg-blue-500/40 rounded-full"
-                  />
-                  
-                  {/* Core Interactive Node */}
-                  <div className="relative w-4 h-4 bg-white rounded-full shadow-[0_0_20px_rgba(59,130,246,1)] border-4 border-blue-600 group-hover:scale-150 transition-transform duration-300 cursor-pointer" />
-                  
-                  {/* Floating Data Tag */}
-                  <div className="absolute top-6 left-1/2 -translate-x-1/2 pointer-events-none">
-                    <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      className="bg-white px-3 py-1.5 rounded-lg shadow-2xl flex items-center gap-2 group-hover:scale-110 transition-transform"
-                    >
-                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" />
-                      <span className="text-[9px] font-black text-slate-900 uppercase whitespace-nowrap">{hub.name} HUB</span>
-                    </motion.div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 flex-grow content-start overflow-y-auto pr-6 custom-scrollbar">
+                    {activeRegion.towns.map((town, idx) => (
+                      <motion.div 
+                        key={idx}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.03 }}
+                        className="flex items-center gap-4 group cursor-default"
+                      >
+                        <div className="w-2 h-2 rounded-full bg-orange-500 group-hover:scale-150 transition-transform shadow-[0_0_10px_rgba(247,148,29,0.5)]" />
+                        <span className="text-slate-600 font-bold text-sm lg:text-lg hover:text-slate-950 transition-colors uppercase tracking-tight">
+                          {town}
+                        </span>
+                      </motion.div>
+                    ))}
                   </div>
-                </div>
-              ))}
 
-              {/* Map Footer Info */}
-              <div className="absolute bottom-10 left-10 flex gap-10">
-                <div>
-                  <p className="text-white/20 text-[10px] font-black uppercase tracking-widest">Lat_Long Control</p>
-                  <p className="text-blue-500/60 font-mono text-xs">40.7128° N, 74.0060° W</p>
-                </div>
-                <div className="hidden md:block">
-                  <p className="text-white/20 text-[10px] font-black uppercase tracking-widest">Active Packets</p>
-                  <p className="text-orange-500/60 font-mono text-xs">14,204 Units/hr</p>
-                </div>
-              </div>
+                  {/* High-Impact Footer Info */}
+                  <div className="mt-12 pt-10 border-t-2 border-white flex flex-wrap items-center justify-between gap-6">
+                    <div className="flex items-center gap-10">
+                       <div className="flex flex-col">
+                         <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Fleet Identity</span>
+                         <span className="text-slate-950 font-black italic tracking-tighter">IMV-NET-ALPHA</span>
+                       </div>
+                       <div className="flex flex-col">
+                         <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Current Load</span>
+                         <div className="flex items-center gap-2">
+                            <div className="w-16 h-1 bg-slate-200 rounded-full overflow-hidden">
+                               <div className="w-3/4 h-full bg-orange-500" />
+                            </div>
+                            <span className="text-slate-950 font-black italic text-xs">75%</span>
+                         </div>
+                       </div>
+                    </div>
+                    <Truck className="text-slate-200 w-24 h-24 absolute -bottom-4 -right-4 rotate-[-15deg] opacity-50" />
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
-              <div className="absolute top-10 right-10">
-                <div className="flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-md">
-                   <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                   <span className="text-[9px] font-black text-emerald-500 uppercase">System Optimal</span>
-                </div>
+              {/* Background Abstract Grid Map */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-[0.05]">
+                 <svg viewBox="0 0 200 200" className="w-full h-full stroke-slate-950 fill-none">
+                    <path d="M20,100 Q100,20 180,100 T20,100" strokeWidth="0.5" />
+                    <path d="M50,50 L150,150 M150,50 L50,150" strokeWidth="0.2" strokeDasharray="4 4" />
+                    <circle cx="100" cy="100" r="70" strokeWidth="0.1" />
+                 </svg>
               </div>
-            </motion.div>
+            </div>
           </div>
 
         </div>

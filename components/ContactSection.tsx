@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Send, Clock, Globe, ShieldCheck, ChevronRight } fr
 
 export function ContactSection() {
   return (
-    <section className="py-24 lg:py-40 bg-white overflow-hidden relative" id="contact">
+    <section id="contact us" className="py-24 lg:py-40 bg-white overflow-hidden relative">
       {/* Structural Decor */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-0 hidden lg:block" />
       

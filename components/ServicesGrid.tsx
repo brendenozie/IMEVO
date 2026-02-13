@@ -1,123 +1,147 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bike, Truck, Plane, ArrowRight, Box, Plus } from "lucide-react";
+import { Bike, Truck, Plane, ArrowRight, Box, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
 const SERVICES = [
   {
     title: "Bike Freight",
-    desc: "Speedy urban bicycle logistics designed for high-density delivery and document transport.",
+    desc: "Speedy urban logistics designed for high-density delivery and document transport.",
     image: "/portrait-young-african-guy-accepts-order-by-phone-motorbike-holding-boxes-with-pizza-sit-his-bike-urban-place.png",
     icon: Bike,
     accent: "bg-orange-500",
+    tag: "Urban Express"
   },
   {
     title: "Van Freight",
     desc: "Flexible van solutions for medium-weight cargo with door-to-door precision and safety.",
     image: "/pexels-kindelmedia-6868164.png",
-    icon: Truck, // Swapped to Truck for better visual context
+    icon: Truck,
     accent: "bg-blue-600",
+    tag: "Door-to-Door"
   },
   {
     title: "Air Freight",
     desc: "Global reach with rapid air transport for time-sensitive, international logistics needs.",
     image: "/pexels-rdne-7464409.png",
     icon: Plane,
-    accent: "bg-slate-900",
+    accent: "bg-slate-950",
+    tag: "Global Priority"
   },
 ];
 
 export function ServicesGrid() {
   return (
-    <section className="py-24 bg-[#fcfcfc] relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500/20 to-transparent" />
-      <div className="absolute -right-20 top-40 w-80 h-80 bg-orange-100/30 rounded-full blur-3xl" />
-
+    <section id="services" className="py-24 lg:py-40 bg-white relative overflow-hidden">
+      {/* Background Architectural Grid */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ backgroundImage: 'linear-gradient(#0f172a 1px, transparent 1px), linear-gradient(90deg, #0f172a 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      
       <div className="container mx-auto px-6 relative z-10">
         
-        {/* --- SECTION HEADER --- */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="space-y-4">
+        {/* --- HEADER --- */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-10">
+          <div className="space-y-6">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3 text-[#f7941d]"
+              className="inline-flex items-center gap-3 px-4 py-2 bg-slate-900 text-white rounded-full"
             >
-              <Box size={18} className="fill-current" />
-              <span className="text-xs font-black uppercase tracking-[0.3em]">Services excellence</span>
+              <Box size={14} className="text-orange-500" />
+              <span className="text-[10px] font-black uppercase tracking-[0.3em]">Core Competencies</span>
             </motion.div>
-            <h2 className="text-4xl md:text-6xl font-black text-slate-950 leading-none uppercase italic">
+            
+            <h2 className="text-6xl md:text-8xl font-black text-slate-950 leading-[0.85] uppercase italic">
               Specialist <br />
-              <span className="text-transparent stroke-slate-950" style={{ WebkitTextStroke: '1px #0f172a' }}>Logistics</span>
+              <span className="text-transparent stroke-slate-950" style={{ WebkitTextStroke: '2px #0f172a' }}>Solutions</span>
             </h2>
           </div>
-          <p className="text-gray-500 max-w-sm text-sm font-medium border-l-2 border-orange-500 pl-4">
-            Customized shipping solutions tailored to your industry, ensuring your cargo arrives safely and on time.
-          </p>
+          
+          <div className="max-w-md space-y-4">
+            <div className="flex items-center gap-2 text-orange-600 font-black text-xs uppercase tracking-widest">
+              <ShieldCheck size={16} /> Secure • Fast • Reliable
+            </div>
+            <p className="text-slate-500 font-medium leading-relaxed">
+              Tailored logistics infrastructure designed to bypass traditional bottlenecks and deliver your vision on a set budget.
+            </p>
+          </div>
         </div>
 
         {/* --- SERVICE CARDS --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-12">
           {SERVICES.map((service, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2, duration: 0.6 }}
+              transition={{ delay: idx * 0.15, duration: 0.8 }}
               className="group relative"
             >
-              {/* Image Container with Perspective */}
-              <div className="relative h-[450px] w-full overflow-hidden rounded-2xl shadow-2xl">
+              {/* Image Frame */}
+              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-slate-100 shadow-2xl">
                 <Image
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-1"
-                  width={500}
-                  height={600}
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
                 
-                {/* Plus Icon Decoration */}
-                <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:rotate-90">
-                  <Plus size={20} />
+                {/* Floating Service Tag */}
+                <div className="absolute top-8 left-8">
+                  <span className="px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-[10px] font-black uppercase tracking-widest">
+                    {service.tag}
+                  </span>
                 </div>
               </div>
 
-              {/* Content Box (Floating Glassmorphism) */}
-              <div className="absolute -bottom-6 left-6 right-6 bg-white p-8 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] transform transition-all duration-500 group-hover:-translate-y-4">
-                
-                {/* Icon Container */}
-                <div className={`absolute -top-10 left-8 w-16 h-16 ${service.accent} rounded-xl flex items-center justify-center shadow-lg transform -rotate-6 group-hover:rotate-0 transition-transform duration-500`}>
-                  <service.icon className="w-8 h-8 text-white" />
+              {/* Content Card Overlay */}
+              <div className="absolute -bottom-12 left-6 right-6 p-8 bg-white rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-50 transition-all duration-500 group-hover:-translate-y-4">
+                {/* Dynamic Icon Badge */}
+                <div className={`absolute -top-10 right-10 w-20 h-20 ${service.accent} rounded-3xl flex items-center justify-center text-white shadow-2xl transform rotate-6 group-hover:rotate-0 transition-all duration-500`}>
+                  <service.icon size={36} strokeWidth={1.5} />
                 </div>
 
-                <div className="pt-2">
-                  <h3 className="text-2xl font-black text-slate-950 mb-3 tracking-tighter uppercase italic">
+                <div className="space-y-4">
+                  <h3 className="text-3xl font-black text-slate-950 uppercase italic leading-none">
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                  <p className="text-slate-500 text-sm leading-relaxed font-medium line-clamp-2">
                     {service.desc}
                   </p>
 
-                  <div className="flex items-center justify-between border-t border-gray-100 pt-5">
-                    <button className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-950 group-hover:text-orange-500 transition-colors">
-                      Explore Service
-                      <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-                    </button>
-                    <span className="text-4xl font-black text-gray-50 opacity-10 group-hover:opacity-20 transition-opacity">
-                      0{idx + 1}
+                  <div className="pt-4 flex items-center justify-between group/btn cursor-pointer">
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 group-hover/btn:text-orange-500 transition-colors">
+                      Configure Route
                     </span>
+                    <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover/btn:bg-slate-950 group-hover/btn:text-white transition-all">
+                      <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </div>
+              
+              {/* Ghost Numbering */}
+              <span className="absolute -top-10 -right-4 text-9xl font-black text-slate-950/[0.03] select-none pointer-events-none uppercase italic">
+                0{idx + 1}
+              </span>
             </motion.div>
           ))}
         </div>
+
+        {/* --- BOTTOM CTA --- */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-40 text-center"
+        >
+          <p className="text-slate-400 font-black text-xs uppercase tracking-[0.5em] mb-6">Need a custom freight solution?</p>
+          <button className="px-12 py-6 bg-orange-600 text-white font-black uppercase text-xs tracking-[0.3em] rounded-2xl hover:bg-slate-950 transition-all shadow-xl hover:shadow-orange-600/20">
+            Request Custom Quote
+          </button>
+        </motion.div>
       </div>
     </section>
   );

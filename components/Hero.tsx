@@ -11,12 +11,12 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen w-full flex items-center overflow-hidden bg-[#111]">
+    <section id="home" className="relative min-h-[90vh] md:min-h-screen w-full flex items-center overflow-hidden bg-[#111]">
       {/* Background with Gradient Overlays */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/5 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
         <Image 
           src="/close-up-delivery-person-with-parcel.png" 
           className="w-full h-full object-cover scale-105 animate-slow-zoom" 
@@ -66,8 +66,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-200 text-base md:text-xl max-w-xl leading-relaxed font-light border-l-2 border-[#f7941d] pl-6"
           >
-            Streamlining your global supply chain with precision rail solutions. 
-            From door-to-door delivery to complex freight management.
+            Your Transport Partner All Across Kenya. We provide reliable and efficient logistics solutions tailored to your needs.
           </motion.p>
 
           {/* Action Buttons */}
@@ -79,10 +78,18 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10 pt-4"
           >
             {/* Slanted Button - Mobile Optimized */}
-            <button className="relative group overflow-hidden h-16 px-10 bg-[#f7941d] text-white font-black text-sm uppercase transition-all transform hover:scale-105 active:scale-95 skew-x-[-12deg]">
+            {/* on click move to contact section */}
+            <button
+                onClick={() => {
+                  const contactSection = document.getElementById("contact us");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+             className="relative group overflow-hidden h-16 px-10 bg-[#f7941d] text-white font-black text-sm uppercase transition-all transform hover:scale-105 active:scale-95 skew-x-[-12deg]">
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
               <span className="skew-x-[12deg] flex items-center gap-3">
-                Get a Free Quote <Send size={18} />
+                Contact Us  <Send size={18} />
               </span>
             </button>
             

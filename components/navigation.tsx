@@ -12,10 +12,12 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Home", hasSub: true },
-    { name: "About", hasSub: false },
+    { name: "About", hasSub: true },
     { name: "Services", hasSub: true },
+    { name: "Solutions", hasSub: true },
+    { name: "Network", hasSub: true },
     { name: "News", hasSub: true },
-    { name: "Contact Us", hasSub: false },
+    { name: "Contact Us", hasSub: true },
   ];
 
   return (
@@ -71,9 +73,10 @@ export function Navbar() {
           <div className="hidden lg:flex flex-grow justify-center">
             <ul className="flex items-center gap-8 text-[15px] font-bold text-gray-800 uppercase tracking-tight">
               {navLinks.map((link) => (
-                <li key={link.name} className="flex items-center gap-1 cursor-pointer hover:text-orange-500 transition-colors">
-                  {link.name} {link.hasSub && <span className="text-xs">+</span>}
-                </li>
+                <a href={`#${link.name.toLowerCase()}`} key={link.name} className="flex items-center gap-1 cursor-pointer hover:text-orange-500 transition-colors">
+                  <li>{link.name}</li> 
+                  {link.hasSub && <span className="text-xs">+</span>}
+                </a>
               ))}
             </ul>
           </div>
@@ -126,16 +129,18 @@ export function Navbar() {
               <div className="flex-grow overflow-y-auto py-4">
                 <ul className="flex flex-col">
                   {navLinks.map((link, idx) => (
-                    <motion.li 
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 }}
-                      key={link.name}
-                      className="flex items-center justify-between px-8 py-4 text-lg font-bold text-gray-800 border-b border-gray-50 active:bg-orange-50"
-                    >
-                      {link.name}
-                      {link.hasSub && <ChevronRight size={18} className="text-orange-500" />}
-                    </motion.li>
+                    <a href={`#${link.name.toLowerCase()}`} key={link.name} className="flex items-center justify-between px-8 py-4 text-lg font-bold text-gray-800 border-b border-gray-50 active:bg-orange-50">
+                      <motion.li 
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        key={link.name}
+                        className="flex items-center justify-between px-8 py-4 text-lg font-bold text-gray-800 border-b border-gray-50 active:bg-orange-50"
+                      >
+                        {link.name}
+                        {link.hasSub && <ChevronRight size={18} className="text-orange-500" />}
+                      </motion.li>
+                    </a>
                   ))}
                 </ul>
               </div>

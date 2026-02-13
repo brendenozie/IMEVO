@@ -7,7 +7,7 @@ import Image from "next/image";
 const POSTS = [
   {
     id: 1,
-    title: "Optimizing Rail Freight for Cold Chain Logistics",
+    title: "Optimizing Route Freight for Cold Chain Logistics",
     excerpt: "How new temperature-controlled rail systems are changing the game for pharmaceutical transport across Europe.",
     date: "Feb 12, 2026",
     author: "Admin",
@@ -17,7 +17,7 @@ const POSTS = [
   },
   {
     id: 2,
-    title: "The Rise of Autonomous Port Operations",
+    title: "The Rise of Autonomous Logistics Operations",
     date: "Feb 10, 2026",
     author: "Strategy Team",
     category: "Technology",
@@ -40,7 +40,7 @@ export function BlogSection() {
   const regularPosts = POSTS.filter(p => !p.featured);
 
   return (
-    <section className="py-24 lg:py-40 bg-white relative overflow-hidden">
+    <section id="news" className="py-24 lg:py-40 bg-white relative overflow-hidden">
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
 
