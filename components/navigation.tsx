@@ -65,7 +65,7 @@ export function Navbar() {
               <div className="bg-blue-700 rounded-full p-1.5 lg:p-2 flex items-center justify-center">
                 <Truck className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </div>
-              <div>
+              <div className="flex flex-col leading-tight">
                 <span className="text-2xl lg:text-4xl font-black italic">Imevo</span>
                 <span className="text-xs font-black uppercase tracking-wide">LIMITED</span>
                 <span className="block text-xs lg:text-sm font-bold tracking-wide uppercase">Logistics & Supply Chain</span>
