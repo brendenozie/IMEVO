@@ -18,37 +18,68 @@ import { Foots } from "@/components/Foots";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100">
       <Navbar />
 
-      <main>
+      <main className="flex flex-col">
+        {/* Hero usually handles its own height/padding for visual impact */}
         <Hero />
 
-        <AboutSection />
+        {/* Wrapping sections in a flex container with a gap 
+            OR applying consistent padding to each block.
+            Using 'space-y' or consistent 'py' (vertical padding) is best.
+        */}
+        <div className="space-y-20 md:space-y-32 mb-20 md:mb-32">
+          
+          <section className="px-4 sm:px-6 lg:px-8">
+            <AboutSection />
+          </section>
 
-        <TeamSection />
+          <section className="px-4 sm:px-6 lg:px-8">
+            <TeamSection />
+          </section>
 
-        <ServicesGrid />
+          <section className="px-4 sm:px-6 lg:px-8">
+            <ServicesGrid />
+          </section>
 
-        <BookingSection />
+          {/* Some sections like Booking might look better with full-width backgrounds */}
+          <section className="py-20 md:py-32">
+                <BookingSection />
+          </section>
 
-        <Testimonials />
+          <section >
+            <Testimonials />
+          </section>
 
-        <WorkShowcase />
+          <section >
+            <WorkShowcase />
+          </section>
 
-        <ProcessTimeline />
+          <section className="px-4 sm:px-6 lg:px-8">
+            <ProcessTimeline />
+          </section>
 
-        <StatsSection />
+          <section>
+            <StatsSection />
+          </section>
 
-        <NetworkMap />
+          <section className="px-4 sm:px-6 lg:px-8">
+            <NetworkMap />
+          </section>
 
-        <BlogSection />
+          <section className="px-4 sm:px-6 lg:px-8">
+            <BlogSection />
+          </section>
 
-        <ContactSection />
+          <section className="px-4 sm:px-6 lg:px-8">
+            <ContactSection />
+          </section>
+          
+        </div>
       </main>
 
       <Foots />
-
       <BackToTop />
     </div>
   );
