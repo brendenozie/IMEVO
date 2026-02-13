@@ -68,7 +68,6 @@ export function Navbar() {
               <div className="flex flex-col leading-tight">
                 <span className="text-2xl lg:text-4xl font-black italic">Imevo</span>
                 <span className="text-xs font-black uppercase tracking-wide">LIMITED</span>
-                {/* <span className="block text-xs lg:text-sm font-bold tracking-wide uppercase">Logistics & Supply Chain</span> */}
               </div>
             </div>
           </div>
