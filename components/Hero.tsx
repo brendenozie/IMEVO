@@ -20,9 +20,7 @@ export function Hero() {
         {/* on mobile lets make the image especially its right side more visible */}
         <Image 
           src="/close-up-delivery-person-with-parcel.png" 
-          className="object-cover object-center w-full h-full animate-slow-zoom"
-          
-          // className="w-full h-full object-cover scale-105 animate-slow-zoom" 
+          className="w-full h-full object-cover scale-105 animate-slow-zoom" 
           alt="Rail Freight and Logistics"
           fill
           priority

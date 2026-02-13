@@ -57,10 +57,9 @@ export function ContactSection() {
                   Select Service
                 </label>
                 <select className="w-full bg-transparent border-b-2 border-slate-100 py-4 font-bold text-slate-950 outline-none focus:border-orange-500 transition-all appearance-none cursor-pointer">
-                  <option>Air Freight Solutions</option>
-                  <option>Ocean Cargo Management</option>
-                  <option>Global Distribution</option>
-                  <option>Customs & Compliance</option>
+                  <option>Transport Solutions</option>
+                  <option>Logistics Management</option>
+                  <option>Waste Management</option>
                 </select>
                 <ChevronRight className="absolute right-0 bottom-4 rotate-90 text-slate-300 pointer-events-none" size={20} />
               </div>
