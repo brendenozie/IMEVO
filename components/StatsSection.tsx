@@ -6,13 +6,13 @@ import { Send, ArrowRight, Globe, MapPin, Users, CheckCircle, Box } from "lucide
 
 const STATS = [
   {
-    label: "Worldwide Clients",
+    label: "Countrywide Clients",
     value: "15k",
     icon: Globe,
     suffix: "+",
   },
   {
-    label: "Global Branches",
+    label: "Local Distribution Centers",
     value: "189",
     icon: MapPin,
     suffix: "+",

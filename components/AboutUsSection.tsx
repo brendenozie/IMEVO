@@ -28,7 +28,7 @@ export function AboutSection() {
                 <div className="absolute -inset-4 border-2 border-orange-500/20 rounded-[2.5rem] -z-10 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                 <div className="rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] relative border-8 border-white">
                   <Image 
-                    src="/pexels-rdne-7363203.png" 
+                    src="/pexels-messina-12492225.jpg" 
                     alt="Operations Excellence" 
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-110" 
@@ -45,7 +45,7 @@ export function AboutSection() {
                    className="rounded-2xl overflow-hidden shadow-xl aspect-square relative border-4 border-white"
                 >
                   <Image 
-                    src="/pexels-kindelmedia-6868164.png" 
+                    src="/pexels-aboodi-29584217.jpg" 
                     alt="Reliable Fleet" 
                     fill
                     className="object-cover" 

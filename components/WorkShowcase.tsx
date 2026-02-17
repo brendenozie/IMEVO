@@ -8,19 +8,19 @@ const PROJECTS = [
   {
     title: "Logistics Division",
     category: "Global Logistics",
-    image: "/pexels-rdne-7363242.png",
+    image: "/pexels-shantumsingh-29057942.jpg",
     gridClass: "lg:col-span-2 lg:row-span-1",
   },
   {
     title: "Transport Hub",
     category: "Infrastructure",
-    image: "/pexels-tima-miroshnichenko-6169676.png",
+    image: "/pexels-cottonbro-4606336.jpg",
     gridClass: "lg:col-span-1 lg:row-span-1",
   },
   {
     title: "Waste Management",
     category: "Waste Management",
-    image: "/pexels-tima-miroshnichenko-6169046.png",
+    image: "/pexels-messina-12492225.jpg",
     gridClass: "lg:col-span-3 lg:row-span-1",
   }
 ];

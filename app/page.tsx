@@ -45,7 +45,7 @@ export default function HomePage() {
 
           {/* Some sections like Booking might look better with full-width backgrounds */}
           <section className="py-20 md:py-32">
-                <BookingSection />
+            <BookingSection />
           </section>
 
           <section >
