@@ -6,22 +6,22 @@ import Image from "next/image";
 
 const REVIEWS = [
   {
-    name: "Ronald Richards",
-    role: "Web Developer",
+    name: "Kimani Ndegwa",
+    role: "Logistics Coordinator",
     content: "The precision in their logistics is unmatched. They don't just deliver packages; they deliver peace of mind with real-time tracking.",
     rating: 5,
     img: "/avatar1.jpeg"
   },
   {
-    name: "Dianne Russell",
+    name: "Timothy  Kimathi",
     role: "Supply Manager",
     content: "Outstanding service! Their team went above and beyond to ensure our international freight arrived ahead of schedule.",
     rating: 5,
     img: "/avatar2.jpeg"
   },
   {
-    name: "Darlene Robertson",
-    role: "CEO, TechFlow",
+    name: "Aisha Otieno",
+    role: "Operations Director",
     content: "Switching to their logistics platform was the best move for our business. Efficient, transparent, and incredibly reliable.",
     rating: 5,
     img: "/avatar3.jpeg"
